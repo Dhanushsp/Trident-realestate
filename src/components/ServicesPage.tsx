@@ -10,7 +10,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 1,
       title: "Real Estate Advisory",
       description: "Providing strategic insights and expert guidance for well-informed decisions.",
-      image: "/hero1.jpg", // You can replace with actual service images
+      image: "/services/1.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -21,7 +21,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 2,
       title: "Buying & Selling Assistance",
       description: "Helping clients navigate property transactions to maximize value.",
-      image: "/hero2.jpg",
+      image: "/services/2.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
@@ -33,7 +33,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 3,
       title: "Leasing Solutions",
       description: "Connecting landlords with reliable tenants and streamlining lease agreements.",
-      image: "/hero3.jpg",
+      image: "/services/3.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -44,7 +44,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 4,
       title: "Investment Consulting",
       description: "Identifying high-yield real estate investment opportunities.",
-      image: "/who-we-are.jpg",
+      image: "/services/4.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -55,7 +55,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 5,
       title: "Legal & Financial Support",
       description: "Partnering with top legal firms, banks, and conveyancing providers for seamless transactions.",
-      image: "/who-we-are.jpg",
+      image: "/services/5.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -66,7 +66,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 6,
       title: "Golden Visa Assistance",
       description: "Helping investors secure long-term residency benefits through property investment.",
-      image: "/who-we-are.jpg",
+      image: "/services/6.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -77,7 +77,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       id: 7,
       title: "Tenant Screening & Property Management",
       description: "Ensuring stress-free property management with reliable tenant screening.",
-      image: "/who-we-are.jpg",
+      image: "/services/7.jpg",
       icon: (
         <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -128,7 +128,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
             {services.map((service, index) => (
               <div key={service.id} className="bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 {/* Service Image with Overlapping Text Box */}
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title}
@@ -136,12 +136,12 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
                   />
                   
                   {/* Overlapping Text Box - Smaller width and better positioning */}
-                  <div className="absolute bottom-0 left-4 right-4 bg-white rounded-t-2xl p-6 shadow-lg">
+                  <div className="absolute bottom-0 left-4 right-4 bg-[#262A10] rounded-t-2xl p-6 shadow-lg">
                     <div className="flex items-center mb-3">
                       
-                      <h3 className="text-xl font-bold text-black">{service.title}</h3>
+                      <h3 className="text-xl font-bold text-[#899878]">{service.title}</h3>
                     </div>
-                    <p className="text-gray-700 leading-relaxed text-sm">
+                    <p className="text-white leading-relaxed text-sm">
                       {service.description}
                     </p>
                     
@@ -152,58 +152,131 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
             ))}
           </div>
 
-          {/* Additional Services Section */}
-          <div className="mt-24 bg-white rounded-3xl p-16 shadow-xl">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-black mb-4">
-                Why Choose Our Services?
-              </h3>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We combine local market expertise with international standards to deliver exceptional results for our clients.
-              </p>
-            </div>
+          {/* What Sets Us Apart Section */}
+         <div className="rounded-3xl p-16 mt-24">
+           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
+             <div className="lg:col-span-3">
+               <p className="text-lg text-black mb-4">What Sets Us Apart</p>
+               <h2 className="text-4xl font-bold text-black mb-8">
+                 BUILT DIFFERENT, TRUSTED ALWAYS
+               </h2>
+             </div>
+             {/* <div className="lg:col-span-1">
+               <a 
+                 href="#services"
+                 className="inline-flex items-center bg-[#899878] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7a8a6a] transition-all duration-200"
+               >
+                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M4 6h16M4 10h16M4 14h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                 </svg>
+                 Services
+               </a>
+             </div> */}
+           </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h4 className="text-xl font-bold text-black mb-2">Expert Guidance</h4>
-                <p className="text-gray-600">Professional advice from experienced real estate specialists</p>
-              </div>
+         {/* Core Values Vertical List */}
+         <div className="w-full">
+           <div className="space-y-6">
+             {/* Value 1 - Transparency */}
+             <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+               <div className="flex items-start space-x-4">
+                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                   </svg>
+                 </div>
+                 <div className="flex-1">
+                   <h3 className="text-xl font-bold text-black mb-2">Transparency</h3>
+                   <p className="text-black leading-relaxed">Clear communication at every step, so you always know where you stand.</p>
+                 </div>
+               </div>
+             </div>
+             
+             {/* Value 2 - Reliability */}
+             <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
+               <div className="flex items-start space-x-4">
+                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                   </svg>
+                 </div>
+                 <div className="flex-1">
+                   <h3 className="text-xl font-bold text-black mb-2">Reliability</h3>
+                   <p className="text-black leading-relaxed">Your goals are our priority, count on us long after the deal is closed.</p>
+                 </div>
+               </div>
+             </div>
+             
+             {/* Value 3 - Legal Precision */}
+             <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+               <div className="flex items-start space-x-4">
+                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                   </svg>
+                 </div>
+                 <div className="flex-1">
+                   <h3 className="text-xl font-bold text-black mb-2">Legal Precision</h3>
+                   <p className="text-black leading-relaxed">We deliver peace of mind through meticulous legal oversight and a seamless, secure process.</p>
+                 </div>
+               </div>
+             </div>
+             
+             {/* Value 4 - Client Commitment */}
+             <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
+               <div className="flex items-start space-x-4">
+                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                   </svg>
+                 </div>
+                 <div className="flex-1">
+                   <h3 className="text-xl font-bold text-black mb-2">Client Commitment</h3>
+                   <p className="text-black leading-relaxed">Your vision drives our approach. We prioritize your objectives with unwavering dedication and tailored service.</p>
+                 </div>
+               </div>
+             </div>
+             
+             {/* Value 5 - Market Expertise */}
+             <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+               <div className="flex items-start space-x-4">
+                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                   </svg>
+                 </div>
+                 <div className="flex-1">
+                   <h3 className="text-xl font-bold text-black mb-2">Market Expertise</h3>
+                   <p className="text-black leading-relaxed">Powered by data and insight, our strategies are guided by in-depth research and real-time market intelligence.</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h4 className="text-xl font-bold text-black mb-2">Fast Results</h4>
-                <p className="text-gray-600">Efficient processes to get you the outcomes you need</p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-black/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h4 className="text-xl font-bold text-black mb-2">Personal Touch</h4>
-                <p className="text-gray-600">Tailored solutions that match your unique requirements</p>
-              </div>
-            </div>
-          </div>
+         </div>
 
           {/* CTA Section */}
-          <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold text-black mb-6">
-              Ready to Get Started?
-            </h3>
-            <button className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-              Contact Us Today
-            </button>
+          <div className="relative text-center mt-16 rounded-2xl overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img 
+                src="/hero2.jpg" 
+                alt="Ready to Get Started Background" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-black/50"></div>
+            </div>
+            
+            {/* Content Overlay */}
+            <div className="relative z-10 py-16 px-8">
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Ready to Get Started?
+              </h3>
+              <button className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                Contact Us Today
+              </button>
+            </div>
           </div>
         </div>
       </section>

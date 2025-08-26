@@ -136,7 +136,7 @@ const AboutSection: React.FC = () => {
         
 
          {/* What Sets Us Apart Section */}
-         <div ref={featuresRef} className={`bg-gradient-to-br from-[#fef2e6] via-[#fff9f7] to-[#fef2e6] rounded-3xl p-16 mt-24 scroll-animate ${featuresVisible ? 'animate' : ''}`}>
+         <div ref={featuresRef} className={`rounded-3xl p-16 mt-24 scroll-animate ${featuresVisible ? 'animate' : ''}`}>
            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
              <div className="lg:col-span-3">
                <p className="text-lg text-black mb-4">What Sets Us Apart</p>
@@ -289,10 +289,10 @@ const AboutSection: React.FC = () => {
          </div>
 
          {/* Trusted Professionals Section */}
-         <div ref={teamRef} className={`bg-gradient-to-br from-[#fef2e6] via-[#fff9f7] to-[#fef2e6] rounded-3xl p-16 mt-24 scroll-animate ${teamVisible ? 'animate' : ''}`}>
+         <div ref={teamRef} className={`rounded-3xl p-16 mt-24 scroll-animate ${teamVisible ? 'animate' : ''}`}>
            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
              <div className="lg:col-span-2">
-               <h1 className="text-5xl font-bold text-black mb-8 leading-tight">
+               <h1 className="text-3xl sm:text-4xl font-bold text-black mb-8 leading-tight">
                  TRUSTED
                  PROFESSIONALS,
                  DRIVING PROPERTY
