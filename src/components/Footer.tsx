@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="flex items-center space-x-3 mb-4">
                 <img 
                   src="/logo.png" 
-                  alt="Horizon Hills Real Estate" 
+                  alt="Trident Luxury Real Estate" 
                   className="h-12 w-auto rounded-xl"
                 />
                 <div>
@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </div>
               {/* <p className="text-gray-200 leading-relaxed max-w-md">
-                Horizon Hills Real Estate - Where Expertise Meets Integrity. We specialize in buying, selling, leasing, and investment consulting, ensuring seamless transactions and expert guidance in Dubai.
+                Trident Luxury Real Estate - Where Expertise Meets Integrity. We specialize in buying, selling, leasing, and investment consulting, ensuring seamless transactions and expert guidance in Dubai.
               </p> */}
             </div>
           </div>

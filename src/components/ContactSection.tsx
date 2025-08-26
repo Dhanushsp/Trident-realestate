@@ -23,7 +23,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission - redirect to contact page for now
-    window.location.href = 'https://horizonhillsrealestate.com/contact-us/';
+          window.location.href = 'https://tridentluxury.com/contact-us/';
   };
 
   return (
@@ -180,8 +180,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Email Address</h4>
-                  <a href="mailto:info@horizonhillsrealestate.com" className="text-primary hover:text-secondary transition-colors duration-200">
-                    info@horizonhillsrealestate.com
+                                  <a href="mailto:info@tridentluxury.com" className="text-primary hover:text-secondary transition-colors duration-200">
+                  info@tridentluxury.com
                   </a>
                 </div>
               </div>

@@ -43,7 +43,7 @@ const ServicesSection: React.FC = () => {
         {/* Main Heading */}
         <div ref={headingRef} className={`text-center mb-16 scroll-animate ${headingVisible ? 'animate' : ''}`}>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight max-w-4xl mx-auto">
-            Horizon Hills Real Estate specializes in buying, selling, leasing, and investment consulting, ensuring seamless transactions and expert guidance in Dubai.
+            Trident Luxury Real Estate specializes in buying, selling, leasing, and investment consulting, ensuring seamless transactions and expert guidance in Dubai.
           </h2>
         </div>
 
@@ -77,7 +77,7 @@ const ServicesSection: React.FC = () => {
         {/* Call to Action */}
         {/* <div ref={ctaRef} className={`text-center mt-16 scroll-animate ${ctaVisible ? 'animate' : ''}`}>
           <a
-            href="https://horizonhillsrealestate.com/contact-us/"
+                            href="https://tridentluxury.com/contact-us/"
             className="inline-flex items-center bg-white text-[#262A10] px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 group"
           >
             <span>Get Expert Consultation</span>

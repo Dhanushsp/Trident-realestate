@@ -24,7 +24,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission - redirect to contact page for now
-    window.location.href = 'https://horizonhillsrealestate.com/contact-us/';
+          window.location.href = 'https://tridentluxury.com/contact-us/';
   };
 
   return (
@@ -34,7 +34,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
         <div className="absolute inset-0">
           <img 
             src="/about-us.jpg" 
-            alt="Contact Us - Horizon Hills Real Estate" 
+            alt="Contact Us - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60"></div>

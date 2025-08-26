@@ -1,7 +1,11 @@
 import React from "react";
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const TrustedPartners: React.FC = () => {
+interface TrustedPartnersProps {
+  onNavigate?: (page: string) => void;
+}
+
+const TrustedPartners: React.FC<TrustedPartnersProps> = ({ onNavigate }) => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { elementRef: gridRef, isVisible: gridVisible } = useScrollAnimation();
   
@@ -77,15 +81,15 @@ const TrustedPartners: React.FC = () => {
           <p className="text-lg text-black mb-6">
             Ready to explore properties from these trusted developers?
           </p>
-          <a
-            href="#contact"
+          <button
+            onClick={() => onNavigate?.('contact')}
             className="inline-flex items-center bg-black text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
             Contact Now
-          </a>
+          </button>
         </div>
       </div>
     </section>

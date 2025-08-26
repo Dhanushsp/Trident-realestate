@@ -65,7 +65,7 @@ const AboutCarousel: React.FC = () => {
             About Us
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover why Horizon Hills Real Estate is your trusted partner in Dubai's dynamic real estate market
+            Discover why Trident Luxury Real Estate is your trusted partner in Dubai's dynamic real estate market
           </p>
         </div>
 

@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
           <div className="flex items-center space-x-4">
             <img 
               src="/logo.png" 
-              alt="Horizon Hills Real Estate" 
+              alt="Trident Luxury Real Estate" 
               className="h-10 sm:h-12 w-auto rounded-xl"
             />
             <div>
@@ -186,13 +186,15 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               
               {/* Call to Action Button */}
               <div className={`pt-8 ${isMenuOpen ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '0.5s' }}>
-                <a 
-                  href="https://horizonhillsrealestate.com/contact-us/" 
+                <button 
+                  onClick={() => {
+                    onNavigate('contact');
+                    setIsMenuOpen(false);
+                  }}
                   className="inline-block bg-[#899878] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#7a8a6a] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  onClick={() => setIsMenuOpen(false)}
                 >
-                  Get Started
-                </a>
+                  Contact Us
+                </button>
               </div>
             </nav>
           </div>

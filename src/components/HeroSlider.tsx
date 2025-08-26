@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const HeroSlider: React.FC = () => {
+interface HeroSliderProps {
+  onNavigate?: (page: string) => void;
+}
+
+const HeroSlider: React.FC<HeroSliderProps> = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -25,7 +29,7 @@ const HeroSlider: React.FC = () => {
       image: "/hero3.jpg",
       overlayColor: "#000000",
       title: "Invest Smart. Buy Right. Sell with Confidence",
-      description: "Horizon Hills Real Estate ensures strategic insights, market expertise, and a hassle-free experience for buyers, sellers, and investors.",
+              description: "Trident Luxury Real Estate ensures strategic insights, market expertise, and a hassle-free experience for buyers, sellers, and investors.",
       textColor: "text-white"
     }
   ];
@@ -51,7 +55,7 @@ const HeroSlider: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen sm:h-screen lg:min-h-screen overflow-hidden">
+    <section id="home" className="relative min-h-screen overflow-hidden">
       {/* Background Slides */}
       {slides.map((slide, index) => (
         <div
@@ -99,12 +103,12 @@ const HeroSlider: React.FC = () => {
             {slides[currentSlide].description}
           </p>
     <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <a
-              href="https://horizonhillsrealestate.com/contact-us/"
-        className="border rounded-lg border-white text-white px-5 py-2 sm:px-6 sm:py-2.5 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-[#7a8a6a] transition-all duration-200 inline-block text-center text-sm sm:text-base lg:text-lg"
+            <button
+              onClick={() => onNavigate?.('contact')}
+              className="border rounded-lg border-white text-white px-5 py-2 sm:px-6 sm:py-2.5 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-[#7a8a6a] transition-all duration-200 inline-block text-center text-sm sm:text-base lg:text-lg"
             >
               Contact Now
-            </a>
+            </button>
           </div>
         </div>
 </section>

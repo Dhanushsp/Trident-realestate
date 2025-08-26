@@ -137,7 +137,7 @@ const PropertyShowcase: React.FC = () => {
                         <p className="text-3xl font-bold text-accent">{property.price}</p>
                       </div>
                       <a
-                        href="https://horizonhillsrealestate.com/contact-us/"
+                        href="https://tridentluxury.com/contact-us/"
                         className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-200"
                       >
                         Learn More
@@ -190,7 +190,7 @@ const PropertyShowcase: React.FC = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <a
-            href="https://horizonhillsrealestate.com/contact-us/"
+                            href="https://tridentluxury.com/contact-us/"
             className="inline-flex items-center bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-all duration-200 group"
           >
             <span>View All Properties</span>

@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 
 interface AboutUsPageProps {
   onBack: () => void;
+  onNavigate: (page: string) => void;
 }
 
-const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack }) => {
+const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
   const [missionVisible, setMissionVisible] = useState(false);
   const [featuresVisible, setFeaturesVisible] = useState(false);
   const [teamVisible, setTeamVisible] = useState(false);
@@ -47,7 +48,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack }) => {
         <div className="absolute inset-0">
           <img 
             src="/who-we-are.jpg" 
-            alt="About Us - Horizon Hills Real Estate" 
+            alt="About Us - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40"></div>
@@ -59,7 +60,10 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack }) => {
             A Trusted Partner
           </h1>
           
-          <button className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <button 
+            onClick={() => onNavigate('contact')}
+            className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
             Let's Talk
           </button>
         </div>
@@ -109,7 +113,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack }) => {
                   WHO WE ARE
                 </h1>
                 <p className="text-base text-gray-700 leading-relaxed max-w-2xl">
-                  Horizon Hills Real Estate is a Dubai-based brokerage firm helping clients buy, sell, and invest with clarity and peace of mind. With legal professionals and real estate experts under one roof, we provide smooth, compliant transactions and tailored advisory that puts your goals first.
+                  Trident Luxury Real Estate is a Dubai-based brokerage firm helping clients buy, sell, and invest with clarity and peace of mind. With legal professionals and real estate experts under one roof, we provide smooth, compliant transactions and tailored advisory that puts your goals first.
                 </p>
               </div>
               
@@ -117,7 +121,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack }) => {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src="/who-we-are.jpg" 
-                  alt="Luxury Waterfront Property - Horizon Hills Real Estate" 
+                  alt="Luxury Waterfront Property - Trident Luxury Real Estate" 
                   className="w-full h-auto object-cover"
                 />
               </div>

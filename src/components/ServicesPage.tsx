@@ -2,9 +2,10 @@ import React from 'react';
 
 interface ServicesPageProps {
   onBack: () => void;
+  onNavigate: (page: string) => void;
 }
 
-const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
+const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
   const services = [
     {
       id: 1,
@@ -95,7 +96,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
         <div className="absolute inset-0">
           <img 
             src="/hero1.jpg" 
-            alt="Services - Horizon Hills Real Estate" 
+            alt="Services - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-blue-900/60"></div>
@@ -110,7 +111,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
       </section>
 
       {/* Services Content Section */}
-      <section className="py-24 bg-[#fef2e6]">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
@@ -132,20 +133,17 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-300"
                   />
                   
-                  {/* Overlapping Text Box - Smaller width and better positioning */}
-                  <div className="absolute bottom-0 left-4 right-4 bg-[#262A10] rounded-t-2xl p-6 shadow-lg">
-                    <div className="flex items-center mb-3">
-                      
-                      <h3 className="text-xl font-bold text-[#899878]">{service.title}</h3>
+                  {/* Overlapping Text Box - Mobile-optimized sizing and positioning */}
+                  <div className="absolute bottom-0 left-2 right-2 md:left-4 md:right-4 bg-[#262A10] rounded-t-2xl p-3 md:p-6 shadow-lg">
+                    <div className="flex items-center mb-2 md:mb-3">
+                      <h3 className="text-lg md:text-xl font-bold text-[#899878]">{service.title}</h3>
                     </div>
-                    <p className="text-white leading-relaxed text-sm">
+                    <p className="text-white leading-relaxed text-xs md:text-sm">
                       {service.description}
                     </p>
-                    
-                    
                   </div>
                 </div>
               </div>
@@ -176,7 +174,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
 
          {/* Core Values Vertical List */}
          <div className="w-full">
-           <div className="space-y-6">
+           <div className="space-y-12">
              {/* Value 1 - Transparency */}
              <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
                <div className="flex items-start space-x-4">
@@ -260,7 +258,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
           <div className="mt-24 bg-black py-16 rounded-2xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Why Choose Horizon Hills?
+                Why Choose TRIDENT LUXURY?
               </h2>
               {/* <p className="text-lg text-gray-300 max-w-3xl mx-auto">
                 We specialize in buying, selling, leasing, and investment consulting, ensuring seamless transactions and expert guidance in Dubai.
@@ -344,7 +342,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Ready to Get Started?
               </h3>
-              <button className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => onNavigate('contact')}
+                className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
                 Contact Us Today
               </button>
             </div>
