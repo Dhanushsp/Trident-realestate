@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="App">
       <Header onNavigate={setCurrentPage} currentPage={currentPage} />
-      <main>
+      <main className="overflow-x-hidden">
         {renderPage()}
       </main>
       <Footer />

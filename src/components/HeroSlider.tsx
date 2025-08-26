@@ -51,7 +51,7 @@ const HeroSlider: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
+    <section id="home" className="relative h-screen sm:h-screen lg:min-h-screen overflow-hidden">
       {/* Background Slides */}
       {slides.map((slide, index) => (
         <div
@@ -81,8 +81,8 @@ const HeroSlider: React.FC = () => {
   <div
     className={`
       z-20 p-4
-      absolute bottom-0 left-4 w-[90%]     /* 📱 Small screens: bottom edge */
-      sm:bottom-0 sm:left-8
+      absolute bottom-4 left-4 w-[90%]     /* 📱 Small screens: bottom edge with padding */
+      sm:bottom-8 sm:left-8
       lg:absolute lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:w-2/3 lg:p-8
     `}
   >
