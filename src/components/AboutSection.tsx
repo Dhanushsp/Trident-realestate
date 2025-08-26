@@ -79,164 +79,61 @@ const AboutSection: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
-          {/* Who We Are Section - First on Mobile, Right on Desktop */}
-          <div className="lg:col-span-3 order-1 lg:order-2">
-            <h1 className="text-4xl font-bold text-black mb-8">
-              WHO WE ARE
-            </h1>
-            <p className="text-base text-black leading-relaxed mb-8 max-w-2xl">
-              With over a decade of expertise and a portfolio spanning premium residences and landmark developments, Trident Luxury stands as a trusted partner for discerning clients in Dubai and beyond.
-            </p>
-            
-            {/* Who We Are Carousel */}
-            <div
-              id="multi-slide"
-              data-carousel='{ "loadingClasses": "opacity-0", "slidesQty": { "xs": 1, "lg": 3 } }'
-              className="relative w-full"
-            >
-              <div className="carousel h-80">
-                <div className="carousel-body h-full opacity-0">
-                  {/* Slide 1 - Company Overview */}
-                  <div className="carousel-slide">
-                    <div className="bg-black/10 flex h-full justify-center p-6 rounded-2xl">
-                      <div className="text-center self-center">
-                        <div className="w-16 h-16 bg-black/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                          <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-black mb-2">Company Overview</h3>
-                        <p className="text-sm text-black">Over a decade of expertise in premium real estate</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Slide 2 - Portfolio */}
-                  <div className="carousel-slide">
-                    <div className="bg-black/10 flex h-full justify-center p-6 rounded-2xl">
-                      <div className="text-center self-center">
-                        <div className="w-16 h-16 bg-black/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                          <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-black mb-2">Portfolio</h3>
-                        <p className="text-sm text-black">Spanning premium residences and landmark developments</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Slide 3 - Trust */}
-                  <div className="carousel-slide">
-                    <div className="bg-black/10 flex h-full justify-center p-6 rounded-2xl">
-                      <div className="text-center self-center">
-                        <div className="w-16 h-16 bg-black/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                          <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-black mb-2">Trusted Partner</h3>
-                        <p className="text-sm text-black">For discerning clients in Dubai and beyond</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Slide 4 - Expertise */}
-                  <div className="carousel-slide">
-                    <div className="bg-black/10 flex h-full justify-center p-6 rounded-2xl">
-                      <div className="text-center self-center">
-                        <div className="w-16 h-16 bg-black/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                          <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-black mb-2">Expertise</h3>
-                        <p className="text-sm text-black">Specialized knowledge in luxury real estate</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Slide 5 - Service */}
-                  <div className="carousel-slide">
-                    <div className="bg-black/10 flex h-full justify-center p-6 rounded-2xl">
-                      <div className="text-center self-center">
-                        <div className="w-16 h-16 bg-black/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                          <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-black mb-2">Service</h3>
-                        <p className="text-sm text-black">Personalized approach to every client</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Slide 6 - Innovation */}
-                  <div className="carousel-slide">
-                    <div className="bg-black/10 flex h-full justify-center p-6 rounded-2xl">
-                      <div className="text-center self-center">
-                        <div className="w-16 h-16 bg-black/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                          <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                          </svg>
-                        </div>
-                        <h3 className="text-lg font-bold text-black mb-2">Innovation</h3>
-                        <p className="text-sm text-black">Cutting-edge real estate solutions</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Previous Slide */}
-              <button type="button" className="carousel-prev start-5 max-sm:start-3 carousel-disabled:opacity-50 size-9.5 bg-white flex items-center justify-center rounded-full shadow-lg border border-gray-200">
-                <svg className="size-5 cursor-pointer text-[#899878]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                <span className="sr-only">Previous</span>
-              </button>
-              
-              {/* Next Slide */}
-              <button type="button" className="carousel-next end-5 max-sm:end-3 carousel-disabled:opacity-50 size-9.5 bg-white flex items-center justify-center rounded-full shadow-lg border border-gray-200">
-                <svg className="size-5 text-[#899878]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-                <span className="sr-only">Next</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Mission and Vision Section - Second on Mobile, Left on Desktop */}
-          <div ref={missionRef} className={`lg:col-span-2 order-2 lg:order-1 bg-gradient-to-br from-[#fef2e6] to-[#fff9f7] rounded-3xl p-12 scroll-animate-left ${missionVisible ? 'animate' : ''}`}>
-            {/* Mission Section */}
-            <div className="mb-12">
-              <div className="w-20 h-20 bg-black/10 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* Left Column - MISSION and VISION Cards */}
+          <div className="lg:col-span-2 order-2 lg:order-1 space-y-8">
+            {/* MISSION Card */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 shadow-lg">
+              <div className="w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
               </div>
-                             <h2 className="text-3xl font-bold text-black mb-4">MISSION</h2>
-              <p className="text-base text-black leading-relaxed">
+              <h2 className="text-3xl font-bold text-black mb-4">MISSION</h2>
+              <p className="text-base text-gray-700 leading-relaxed">
                 Trident Luxury is dedicated to elevating the real estate experience into a journey of trust, clarity, and sophistication. We go beyond transactions, offering tailored strategies, insider knowledge, and unrivaled expertise to guide investors and homebuyers toward exceptional opportunities. With a foundation built on discretion, integrity, and precision, we craft lasting relationships while delivering value that transcends the ordinary.
               </p>
             </div>
 
-            {/* Vision Section */}
-            <div>
-              <div className="w-20 h-20 bg-black/10 rounded-full flex items-center justify-center mb-6">
-                <svg className="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* VISION Card */}
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 shadow-lg">
+              <div className="w-16 h-16 bg-black/20 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-                             <h2 className="text-3xl font-bold text-black mb-4">VISION</h2>
-              <p className="text-base text-black leading-relaxed">
+              <h2 className="text-3xl font-bold text-black mb-4">VISION</h2>
+              <p className="text-base text-gray-700 leading-relaxed">
                 To be the definitive name in luxury real estate. Trident Luxury envisions a real estate experience defined by excellence, where every client is empowered to make confident, informed decisions through bespoke service and world-class advisory.
               </p>
             </div>
           </div>
+          
+          {/* Right Column - WHO WE ARE Content and Image */}
+          <div className="lg:col-span-3 order-1 lg:order-2">
+            {/* WHO WE ARE Text Section */}
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold text-black mb-6">
+                WHO WE ARE
+              </h1>
+              <p className="text-base text-gray-700 leading-relaxed max-w-2xl">
+                Horizon Hills Real Estate is a Dubai-based brokerage firm helping clients buy, sell, and invest with clarity and peace of mind. With legal professionals and real estate experts under one roof, we provide smooth, compliant transactions and tailored advisory that puts your goals first.
+              </p>
+            </div>
+            
+            {/* Large Image Below Text */}
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src="/who-we-are.jpg" 
+                alt="Luxury Waterfront Property - Horizon Hills Real Estate" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </div>
+
+        
 
          {/* What Sets Us Apart Section */}
          <div ref={featuresRef} className={`bg-gradient-to-br from-[#fef2e6] via-[#fff9f7] to-[#fef2e6] rounded-3xl p-16 mt-24 scroll-animate ${featuresVisible ? 'animate' : ''}`}>
@@ -261,16 +158,12 @@ const AboutSection: React.FC = () => {
            </div>
 
          {/* Core Values Carousel */}
-         <div
-           id="centered"
-           data-carousel='{ "loadingClasses": "opacity-0", "isCentered": true, "slidesQty": { "xs": 1, "lg": 2 } }'
-           className="relative w-full"
-         >
-           <div className="carousel h-80">
-             <div className="carousel-body h-full">
+         <div className="relative w-full">
+           <div className="carousel h-80 overflow-hidden">
+             <div className="carousel-body h-full flex transition-transform duration-300 ease-in-out">
                {/* Slide 1 - Transparency */}
-               <div className="carousel-slide px-1">
-                 <div className="bg-gray-100 flex h-full justify-center p-6 rounded-lg">
+               <div className="carousel-slide px-1 flex-shrink-0 w-full lg:w-1/3">
+                 <div className="bg-gray-100 flex h-full justify-center p-6 rounded-lg w-full">
                    <div className="text-center">
                      <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
                        <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -284,8 +177,8 @@ const AboutSection: React.FC = () => {
                </div>
                
                {/* Slide 2 - Reliability */}
-               <div className="carousel-slide px-1">
-                 <div className="bg-white flex h-full justify-center p-6 rounded-lg border border-gray-200">
+               <div className="carousel-slide px-1 flex-shrink-0 w-full lg:w-1/3">
+                 <div className="bg-white flex h-full justify-center p-6 rounded-lg border border-gray-200 w-full">
                    <div className="text-center">
                      <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
                        <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -299,11 +192,11 @@ const AboutSection: React.FC = () => {
                </div>
                
                {/* Slide 3 - Legal Precision */}
-               <div className="carousel-slide px-1">
-                 <div className="bg-gray-100 flex h-full justify-center p-6 rounded-lg">
+               <div className="carousel-slide px-1 flex-shrink-0 w-full lg:w-1/3">
+                 <div className="bg-gray-100 flex h-full justify-center p-6 rounded-lg w-full">
                    <div className="text-center">
-                     <div className="w-16 h-16 bg-[#899878]/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                       <svg className="w-8 h-8 text-[#899878]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                       <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                        </svg>
                      </div>
@@ -314,11 +207,11 @@ const AboutSection: React.FC = () => {
                </div>
                
                {/* Slide 4 - Client Commitment */}
-               <div className="carousel-slide px-1">
-                 <div className="bg-white flex h-full justify-center p-6 rounded-lg border border-gray-200">
+               <div className="carousel-slide px-1 flex-shrink-0 w-full lg:w-1/3">
+                 <div className="bg-white flex h-full justify-center p-6 rounded-lg border border-gray-200 w-full">
                    <div className="text-center">
-                     <div className="w-16 h-16 bg-[#899878]/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                       <svg className="w-8 h-8 text-[#899878]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                       <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                        </svg>
                      </div>
@@ -329,11 +222,11 @@ const AboutSection: React.FC = () => {
                </div>
                
                {/* Slide 5 - Market Expertise */}
-               <div className="carousel-slide px-1">
-                 <div className="bg-gray-100 flex h-full justify-center p-6 rounded-lg">
+               <div className="carousel-slide px-1 flex-shrink-0 w-full lg:w-1/3">
+                 <div className="bg-gray-100 flex h-full justify-center p-6 rounded-lg w-full">
                    <div className="text-center">
-                     <div className="w-16 h-16 bg-[#899878]/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                       <svg className="w-8 h-8 text-[#899878]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                       <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                        </svg>
                      </div>
@@ -345,23 +238,48 @@ const AboutSection: React.FC = () => {
              </div>
            </div>
 
-           {/* Previous Slide */}
+           {/* Previous Slide Button */}
            <button 
              type="button" 
-             className="carousel-prev start-5 max-sm:start-3 carousel-disabled:opacity-50 size-9.5 bg-white flex items-center justify-center rounded-full shadow-lg border border-gray-200"
+             className="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200 z-10"
+             onClick={() => {
+               const carouselBody = document.querySelector('.carousel-body');
+               if (carouselBody instanceof HTMLElement) {
+                 const currentTransform = carouselBody.style.transform;
+                 const translateX = currentTransform.includes('translateX') 
+                   ? parseInt(currentTransform.match(/translateX\(([-\d.]+)px\)/)?.[1] || '0') 
+                   : 0;
+                 const slideWidth = window.innerWidth >= 1024 ? 33.333 : 100; // lg: 1/3, xs: full
+                 const newTranslateX = Math.min(translateX + slideWidth, 0);
+                 carouselBody.style.transform = `translateX(${newTranslateX}%)`;
+               }
+             }}
            >
-             <svg className="size-5 cursor-pointer text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
              </svg>
              <span className="sr-only">Previous</span>
            </button>
            
-           {/* Next Slide */}
+           {/* Next Slide Button */}
            <button 
              type="button" 
-             className="carousel-next end-5 max-sm:end-3 carousel-disabled:opacity-50 size-9.5 bg-white flex items-center justify-center rounded-full shadow-lg border border-gray-200"
+             className="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white text-black p-3 rounded-full shadow-lg border border-gray-200 hover:bg-gray-50 transition-all duration-200 z-10"
+             onClick={() => {
+               const carouselBody = document.querySelector('.carousel-body');
+               if (carouselBody instanceof HTMLElement) {
+                 const currentTransform = carouselBody.style.transform;
+                 const translateX = currentTransform.includes('translateX') 
+                   ? parseInt(currentTransform.match(/translateX\(([-\d.]+)px\)/)?.[1] || '0') 
+                   : 0;
+                 const slideWidth = window.innerWidth >= 1024 ? 33.333 : 100; // lg: 1/3, xs: full
+                 const maxTranslateX = window.innerWidth >= 1024 ? -66.666 : -400; // lg: show 3, xs: show 1
+                 const newTranslateX = Math.max(translateX - slideWidth, maxTranslateX);
+                 carouselBody.style.transform = `translateX(${newTranslateX}%)`;
+               }
+             }}
            >
-             <svg className="size-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
              </svg>
              <span className="sr-only">Next</span>
@@ -386,7 +304,7 @@ const AboutSection: React.FC = () => {
              <div className="lg:col-span-1 space-y-6">
                {/* Team Member 1 */}
                <div className="bg-white rounded-2xl p-6 border border-[#899878]/15 shadow-lg">
-                 <div className="w-24 h-24 rounded-xl overflow-hidden mb-4 mx-auto">
+                 <div className="w-52 h-64 rounded-xl overflow-hidden mb-4 mx-auto">
                    <img 
                      src={owner}
                      alt="Rahul Zaveri"
@@ -400,10 +318,8 @@ const AboutSection: React.FC = () => {
                    href="#"
                    className="inline-flex items-center bg-[#899878] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#7a8a6a] transition-all duration-200"
                  >
-                   <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                   </svg>
-                   Rahul Zaveri
+                   
+                   Contact
                  </a>
                </div>
              </div>

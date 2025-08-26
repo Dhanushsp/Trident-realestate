@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
+interface HeaderProps {
+  onNavigate: (page: string) => void;
+  currentPage: string;
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -40,14 +44,19 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  const handleNavigation = (page: string) => {
+    onNavigate(page);
+    setIsMenuOpen(false);
+  };
+
   return (
-        <header className={`fixed top-0 left-0 right-0 z-50 text-white border-b transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-[#262A10] border-[#899878]' 
-            : 'bg-transparent border-transparent'
-        }`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 text-white border-b transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-[#262A10] border-[#899878]' 
+        : 'bg-transparent border-transparent'
+    }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 relative">
           {/* Logo and Company Name */}
           <div className="flex items-center space-x-4">
             <img 
@@ -56,10 +65,16 @@ const Header: React.FC = () => {
               className="h-10 sm:h-12 w-auto rounded-xl"
             />
             <div>
-              <h1 className="text-lg sm:text-xl font-bold text-white" style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}>
+              <h1
+                className="text-base sm:text-xl font-bold text-white"
+                style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}
+              >
                 TRIDENT LUXURY
               </h1>
-              <p className="text-sm sm:text-xsm text-white" style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}>
+              <p
+                className="text-xs sm:text-sm text-white"
+                style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}
+              >
                 Luxury Real Estate, Redefined
               </p>
             </div>
@@ -67,29 +82,39 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden text-white md:flex items-center space-x-8">
-            <a href="#home" className=" hover:text-[#899878] transition-colors duration-200 font-medium">
+            <a 
+              href="#home" 
+              className="hover:text-[#899878] transition-colors duration-200 font-medium cursor-pointer"
+              onClick={() => handleNavigation('home')}
+            >
               Home
             </a>
-            <a href="#services" className=" hover:text-[#899878] transition-colors duration-200 font-medium">
+            <a 
+              href="#services" 
+              className="hover:text-[#899878] transition-colors duration-200 font-medium cursor-pointer"
+              onClick={() => handleNavigation('services')}
+            >
               Services
             </a>
-            <a href="#about" className=" hover:text-[#899878] transition-colors duration-200 font-medium">
+            <a 
+              href="#about" 
+              className="hover:text-[#899878] transition-colors duration-200 font-medium cursor-pointer"
+              onClick={() => handleNavigation('about')}
+            >
               About
             </a>
-            <a href="#contact" className=" hover:text-[#899878] transition-colors duration-200 font-medium">
+            <a 
+              href="#contact" 
+              className="hover:text-[#899878] transition-colors duration-200 font-medium cursor-pointer"
+              onClick={() => handleNavigation('home')}
+            >
               Contact
             </a>
-            {/* <a 
-              href="https://horizonhillsrealestate.com/contact-us/" 
-              className="bg-[#899878] text-white px-6 py-2 rounded-lg hover:bg-[#7a8a6a] transition-colors duration-200 font-medium"
-            >
-              Get Started
-            </a> */}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-white hover:text-[#899878]"
+            className="md:hidden p-3 text-white hover:text-[#899878] transition-colors duration-200 z-50 relative bg-black/20 rounded-lg hover:bg-black/30"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -130,7 +155,7 @@ const Header: React.FC = () => {
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.1s' }}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavigation('home')}
               >
                 Home
               </a>
@@ -140,7 +165,7 @@ const Header: React.FC = () => {
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.2s' }}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavigation('services')}
               >
                 Services
               </a>
@@ -150,7 +175,7 @@ const Header: React.FC = () => {
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.3s' }}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavigation('about')}
               >
                 About
               </a>
@@ -160,7 +185,7 @@ const Header: React.FC = () => {
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.4s' }}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavigation('home')}
               >
                 Contact
               </a>
