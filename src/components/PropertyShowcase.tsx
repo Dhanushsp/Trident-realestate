@@ -98,12 +98,12 @@ const PropertyShowcase: React.FC = () => {
                       <img 
                         src={property.logo} 
                         alt="Developer Logo" 
-                        className="h-12 w-auto opacity-80"
+                        className="w-16 h-16 object-contain"
                       />
                     </div>
-                    
+
                     {/* Property Details */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                       <div className="flex items-center space-x-3">
                         <img 
                           src="https://horizonhillsrealestate.com/wp-content/uploads/2025/04/land-layer-location-png.webp" 
@@ -112,6 +112,7 @@ const PropertyShowcase: React.FC = () => {
                         />
                         <span className="text-lg">{property.location}</span>
                       </div>
+
                       <div className="flex items-center space-x-3">
                         <img 
                           src="https://horizonhillsrealestate.com/wp-content/uploads/2025/04/land-layers-png.webp" 
@@ -120,6 +121,7 @@ const PropertyShowcase: React.FC = () => {
                         />
                         <span className="text-lg">{property.area}</span>
                       </div>
+
                       <div className="flex items-center space-x-3">
                         <img 
                           src="https://horizonhillsrealestate.com/wp-content/uploads/2025/04/time-watch-calendar-png.webp" 
@@ -137,7 +139,7 @@ const PropertyShowcase: React.FC = () => {
                         <p className="text-3xl font-bold text-accent">{property.price}</p>
                       </div>
                       <a
-                        href="https://tridentluxury.com/contact-us/"
+                        href="https://horizonhillsrealestate.com/contact-us/"
                         className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-secondary transition-colors duration-200"
                       >
                         Learn More
@@ -190,7 +192,7 @@ const PropertyShowcase: React.FC = () => {
         {/* Call to Action */}
         <div className="text-center mt-16">
           <a
-                            href="https://tridentluxury.com/contact-us/"
+            href="https://horizonhillsrealestate.com/contact-us/"
             className="inline-flex items-center bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-all duration-200 group"
           >
             <span>View All Properties</span>
@@ -210,5 +212,3 @@ const PropertyShowcase: React.FC = () => {
 };
 
 export default PropertyShowcase;
-
-

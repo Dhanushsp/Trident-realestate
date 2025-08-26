@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import HeroSlider from './components/HeroSlider';
 import ServicesSection from './components/ServicesSection';
@@ -16,22 +16,34 @@ import Footer from './components/Footer';
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  // Scroll to top whenever page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  // Custom navigation function that ensures scroll to top
+  const handleNavigate = (page: string) => {
+    setCurrentPage(page);
+    // Additional scroll to top for immediate effect
+    window.scrollTo(0, 0);
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'about':
-        return <AboutUsPage onBack={() => setCurrentPage('home')} onNavigate={setCurrentPage} />;
+        return <AboutUsPage onBack={() => handleNavigate('home')} onNavigate={handleNavigate} />;
       case 'services':
-        return <ServicesPage onBack={() => setCurrentPage('home')} onNavigate={setCurrentPage} />;
+        return <ServicesPage onBack={() => handleNavigate('home')} onNavigate={handleNavigate} />;
       case 'contact':
-        return <ContactUsPage onBack={() => setCurrentPage('home')} />;
+        return <ContactUsPage onBack={() => handleNavigate('home')} />;
       default:
         return (
           <>
-            <HeroSlider onNavigate={setCurrentPage} />
+            <HeroSlider onNavigate={handleNavigate} />
             <ServicesSection />
             <AboutSection />
             <VideoSection />
-            <TrustedPartners onNavigate={setCurrentPage} />
+            <TrustedPartners onNavigate={handleNavigate} />
             <ScrollingBanner />
             <ProcessSection />
           </>
@@ -41,11 +53,11 @@ function App() {
 
   return (
     <div className="App">
-      <Header onNavigate={setCurrentPage} currentPage={currentPage} />
+      <Header onNavigate={handleNavigate} currentPage={currentPage} />
       <main className="overflow-x-hidden">
         {renderPage()}
       </main>
-      <Footer onNavigate={setCurrentPage} />
+      <Footer onNavigate={handleNavigate} />
     </div>
   );
 }

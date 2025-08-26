@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface ContactUsPageProps {
   onBack: () => void;
 }
 
 const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { elementRef: formRef, isVisible: formVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
@@ -24,42 +27,35 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission - redirect to contact page for now
-          window.location.href = 'https://tridentluxury.com/contact-us/';
+    window.location.href = 'https://tridentluxury.com/contact-us/';
   };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      {/* <section className="relative h-screen flex items-center justify-center">
+      <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <img 
             src="/about-us.jpg" 
             alt="Contact Us - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/60"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight archivo-black">
+          <h1 className="text-2xl sm:text-5xl font-bold mb-8 leading-tight archivo-black">
             Contact Us
           </h1>
-          
-          <button 
-            onClick={onBack}
-            className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Back to Home
-          </button>
         </div>
-      </section> */}
+      </section>
 
       {/* Contact Form Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Contact Information Header */}
-            <div className="text-center mb-16">
+            <div ref={headerRef} className={`text-center mb-16 scroll-animate ${headerVisible ? 'animate' : ''}`}>
               <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 archivo-black">
                 Contact Information
               </h2>
@@ -69,12 +65,12 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-gray-50 rounded-3xl p-12 shadow-xl">
+            <div ref={formRef} className={`bg-[#7a8a6a] rounded-3xl p-12 shadow-xl scroll-animate ${formVisible ? 'animate' : ''}`} style={{ backgroundColor: '#7a8a6a' }}>
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name and Phone Row */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="fullName" className="block text-lg font-semibold text-black mb-3 cmu-serif">
+                    <label htmlFor="fullName" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                       Full Name:
                     </label>
                     <input
@@ -90,7 +86,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                   </div>
 
                   <div>
-                    <label htmlFor="phoneNumber" className="block text-lg font-semibold text-black mb-3 cmu-serif">
+                    <label htmlFor="phoneNumber" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                       Phone Number:
                     </label>
                     <input
@@ -108,7 +104,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
 
                 {/* Looking For Section */}
                 <div>
-                  <label className="block text-lg font-semibold text-black mb-4 cmu-serif">
+                  <label className="block text-lg font-semibold text-white mb-4 cmu-serif">
                     Are you looking to:
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -122,7 +118,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                           onChange={handleChange}
                           className="w-5 h-5 text-black border-2 border-gray-300 focus:ring-black focus:ring-2"
                         />
-                        <span className="text-black cmu-serif">{option}</span>
+                        <span className="text-white cmu-serif">{option}</span>
                       </label>
                     ))}
                   </div>
@@ -130,7 +126,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
 
                 {/* Property Type Section */}
                 <div>
-                  <label className="block text-lg font-semibold text-black mb-4 cmu-serif">
+                  <label className="block text-lg font-semibold text-white mb-4 cmu-serif">
                     What type of property are you interested in?
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -144,7 +140,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                           onChange={handleChange}
                           className="w-5 h-5 text-black border-2 border-gray-300 focus:ring-black focus:ring-2"
                         />
-                        <span className="text-black cmu-serif">{type}</span>
+                        <span className="text-white cmu-serif">{type}</span>
                       </label>
                     ))}
                   </div>
@@ -152,7 +148,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
 
                 {/* Bedrooms Dropdown */}
                 <div>
-                  <label htmlFor="bedrooms" className="block text-lg font-semibold text-black mb-3 cmu-serif">
+                  <label htmlFor="bedrooms" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                     Preferred number of bedrooms:
                   </label>
                   <select
@@ -173,7 +169,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
 
                 {/* Message Textarea */}
                 <div>
-                  <label htmlFor="message" className="block text-lg font-semibold text-black mb-3 cmu-serif">
+                  <label htmlFor="message" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                     What's on your mind?
                   </label>
                   <textarea
@@ -206,3 +202,5 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
 };
 
 export default ContactUsPage;
+
+

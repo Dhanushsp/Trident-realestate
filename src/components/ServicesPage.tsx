@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface ServicesPageProps {
   onBack: () => void;
@@ -6,6 +7,9 @@ interface ServicesPageProps {
 }
 
 const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { elementRef: servicesGridRef, isVisible: servicesGridVisible } = useScrollAnimation();
+  const { elementRef: valuesRef, isVisible: valuesVisible } = useScrollAnimation();
   const services = [
     {
       id: 1,
@@ -103,7 +107,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
         </div>
         
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight archivo-black">
+          <h1 className="text-2xl md:text-5xl font-bold mb-8 leading-tight archivo-black">
             Our Services,<br />
             Your Advantage
           </h1>
@@ -111,23 +115,23 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
       </section>
 
       {/* Services Content Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-4">
+          <div ref={headerRef} className={`text-center mb-16 scroll-animate ${headerVisible ? 'animate' : ''}`}>
+            <div className="flex items-center justify-start mb-4">
               <div className="w-3 h-3 bg-black rounded-full mr-3"></div>
               <span className="text-sm font-semibold text-black uppercase tracking-wider">SERVICES</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-black mb-4">
               Helping You Make the Right Move
             </h2>
           </div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div ref={servicesGridRef} className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto scroll-animate ${servicesGridVisible ? 'animate' : ''}`}>
             {services.map((service, index) => (
-              <div key={service.id} className="bg-white  rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+              <div key={service.id} className="bg-white border-8 border-[#7a8a6a] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2" style={{ borderColor: '#7a8a6a' }}>
                 {/* Service Image with Overlapping Text Box */}
                 <div className="relative overflow-hidden">
                   <img 
@@ -151,11 +155,11 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
           {/* What Sets Us Apart Section */}
-         <div className="rounded-3xl p-16 mt-24">
+         <div ref={valuesRef} className={`rounded-3xl p-16  scroll-animate ${valuesVisible ? 'animate' : ''}`}>
            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
              <div className="lg:col-span-3">
                <p className="text-lg text-black mb-4">What Sets Us Apart</p>
-               <h2 className="text-4xl font-bold text-black mb-8">
+               <h2 className="text-2xl sm:text-4xl font-bold text-black mb-8">
                  BUILT DIFFERENT, TRUSTED ALWAYS
                </h2>
              </div>
@@ -176,10 +180,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
          <div className="w-full">
            <div className="space-y-12">
              {/* Value 1 - Transparency */}
-             <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+             <div className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate-stagger-1 ${valuesVisible ? 'animate' : ''}`}>
                <div className="flex items-start space-x-4">
-                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
+                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                    </svg>
                  </div>
@@ -191,61 +195,61 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
              </div>
              
              {/* Value 2 - Reliability */}
-             <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
+             <div className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate-stagger-2 ${valuesVisible ? 'animate' : ''}`}>
                <div className="flex items-start space-x-4">
-                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
+                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                    </svg>
                  </div>
                  <div className="flex-1">
                    <h3 className="text-xl font-bold text-black mb-2">Reliability</h3>
-                   <p className="text-black leading-relaxed">Your goals are our priority, count on us long after the deal is closed.</p>
+                   <p className="text-black leading-relaxed">Consistent, dependable service that you can count on, every single time.</p>
                  </div>
                </div>
              </div>
              
              {/* Value 3 - Legal Precision */}
-             <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+             <div className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate-stagger-3 ${valuesVisible ? 'animate' : ''}`}>
                <div className="flex items-start space-x-4">
-                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
+                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                    </svg>
                  </div>
                  <div className="flex-1">
                    <h3 className="text-xl font-bold text-black mb-2">Legal Precision</h3>
-                   <p className="text-black leading-relaxed">We deliver peace of mind through meticulous legal oversight and a seamless, secure process.</p>
+                   <p className="text-black leading-relaxed">Expert legal guidance ensures every transaction is compliant and secure.</p>
                  </div>
                </div>
              </div>
              
              {/* Value 4 - Client Commitment */}
-             <div className="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
+             <div className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate-stagger-4 ${valuesVisible ? 'animate' : ''}`}>
                <div className="flex items-start space-x-4">
-                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
+                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                    </svg>
                  </div>
                  <div className="flex-1">
                    <h3 className="text-xl font-bold text-black mb-2">Client Commitment</h3>
-                   <p className="text-black leading-relaxed">Your vision drives our approach. We prioritize your objectives with unwavering dedication and tailored service.</p>
+                   <p className="text-black leading-relaxed">Your success is our priority, with personalized attention and dedicated support.</p>
                  </div>
                </div>
              </div>
              
              {/* Value 5 - Market Expertise */}
-             <div className="bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+             <div className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate-stagger-5 ${valuesVisible ? 'animate' : ''}`}>
                <div className="flex items-start space-x-4">
-                 <div className="w-16 h-16 bg-black/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                   <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
+                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                    </svg>
                  </div>
                  <div className="flex-1">
                    <h3 className="text-xl font-bold text-black mb-2">Market Expertise</h3>
-                   <p className="text-black leading-relaxed">Powered by data and insight, our strategies are guided by in-depth research and real-time market intelligence.</p>
+                   <p className="text-black leading-relaxed">Deep local knowledge and market insights to guide your investment decisions.</p>
                  </div>
                </div>
              </div>
@@ -265,11 +269,11 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
               </p> */}
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-20 justify-items-center">
+            <div className="grid grid-cols-3 gap-4 md:gap-8 lg:gap-20 justify-items-center">
               {/* Service 1 - Proven Investment Expertise */}
               <div className="text-center group">
                 <div className="mb-4 flex justify-center">
-                  <div className="w-16 h-16 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
                     <img 
                       src="https://horizonhillsrealestate.com/wp-content/uploads/2025/03/analytics-ezgif.com-optimize.gif.webp" 
                       alt="Proven Investment Expertise"
@@ -277,7 +281,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                     />
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-white leading-tight mb-2">
+                <h3 className="text-sm md:text-lg font-medium text-white leading-tight mb-2">
                   Proven Investment Expertise
                 </h3>
                 {/* <p className="text-sm text-gray-300 max-w-[200px]">
@@ -288,7 +292,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
               {/* Service 2 - Seamless Property Transactions */}
               <div className="text-center group">
                 <div className="mb-4 flex justify-center">
-                  <div className="w-16 h-16 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
                     <img 
                       src="https://horizonhillsrealestate.com/wp-content/uploads/2025/03/keys-ezgif.com-optimize.gif.webp" 
                       alt="Seamless Property Transactions"
@@ -296,7 +300,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                     />
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-white leading-tight mb-2">
+                <h3 className="text-sm md:text-lg font-medium text-white leading-tight mb-2">
                   Seamless Property Transactions
                 </h3>
                 {/* <p className="text-sm text-gray-300 max-w-[200px]">
@@ -307,7 +311,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
               {/* Service 3 - Trusted Real Estate Advisory */}
               <div className="text-center group">
                 <div className="mb-4 flex justify-center">
-                  <div className="w-16 h-16 flex items-center justify-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
                     <img 
                       src="https://horizonhillsrealestate.com/wp-content/uploads/2025/03/shield1-ezgif.com-optimize.gif.webp" 
                       alt="Trusted Real Estate Advisory"
@@ -315,7 +319,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                     />
                   </div>
                 </div>
-                <h3 className="text-lg font-medium text-white leading-tight mb-2">
+                <h3 className="text-sm md:text-lg font-medium text-white leading-tight mb-2">
                   Trusted Real Estate Advisory
                 </h3>
                 {/* <p className="text-sm text-gray-300 max-w-[200px]">
@@ -344,7 +348,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
               </h3>
               <button 
                 onClick={() => onNavigate('contact')}
-                className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="bg-white text-black px-6 py-3 rounded-xl font-bold text-base hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Contact Us Today
               </button>

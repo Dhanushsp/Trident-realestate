@@ -1,6 +1,8 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const VideoSection: React.FC = () => {
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation();
   return (
     <section className="relative py-32 bg-[#262A10] overflow-hidden">
       {/* Background Video */}
@@ -24,7 +26,7 @@ const VideoSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div ref={contentRef} className={`relative z-10 container mx-auto px-4 text-center scroll-animate ${contentVisible ? 'animate' : ''}`}>
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
             Invest. Grow. Succeed.

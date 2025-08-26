@@ -58,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 relative">
           {/* Logo and Company Name */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 animate-fade-in-left">
             <img 
               src="/logo.png" 
               alt="Trident Luxury Real Estate" 
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden text-white md:flex items-center space-x-8">
+          <nav className="hidden text-white md:flex items-center space-x-8 animate-fade-in-right">
             <a 
               href="#home" 
               className="hover:text-[#899878] transition-colors duration-200 font-medium cursor-pointer"
@@ -108,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 text-white hover:text-[#899878] transition-colors duration-200 z-50 relative bg-black/20 rounded-lg hover:bg-black/30"
+            className="md:hidden p-3 text-white hover:text-[#899878] transition-colors duration-200 z-50 relative bg-black/20 rounded-lg hover:bg-black/30 animate-fade-in-right"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             <nav className="text-center space-y-8">
               <a 
                 href="#home" 
-                className={`block text-3xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
+                className={`block text-xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.1s' }}
@@ -155,7 +155,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               </a>
               <a 
                 href="#services" 
-                className={`block text-3xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
+                className={`block text-xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.2s' }}
@@ -165,7 +165,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               </a>
               <a 
                 href="#about" 
-                className={`block text-3xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
+                className={`block text-xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.3s' }}
@@ -175,7 +175,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               </a>
               <a 
                 href="#contact" 
-                className={`block text-3xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
+                className={`block text-xl font-bold text-white hover:text-[#899878] transition-all duration-500 transform hover:scale-110 ${
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.4s' }}
@@ -184,18 +184,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
                 Contact
               </a>
               
-              {/* Call to Action Button */}
-              <div className={`pt-8 ${isMenuOpen ? 'animate-fade-in-up' : ''}`} style={{ animationDelay: '0.5s' }}>
-                <button 
-                  onClick={() => {
-                    onNavigate('contact');
-                    setIsMenuOpen(false);
-                  }}
-                  className="inline-block bg-[#899878] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#7a8a6a] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-                >
-                  Contact Us
-                </button>
-              </div>
+              
             </nav>
           </div>
           

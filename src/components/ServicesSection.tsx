@@ -28,7 +28,7 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-gradient-to-b from-black via-black to-gray-900 overflow-hidden">
+    <section id="services" className="relative py-24 bg-[#7a8a6a] overflow-hidden">
       {/* Background Pattern */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
@@ -36,7 +36,8 @@ const ServicesSection: React.FC = () => {
       />
       
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/70 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#262A10]/70 to-[#262A10]" />
+
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
@@ -52,8 +53,12 @@ const ServicesSection: React.FC = () => {
           {services.map((service, index) => (
             <div 
               key={service.id}
-              className="text-center group"
-              style={{ animationDelay: `${index * 200}ms` }}
+              className={`text-center group scroll-animate-stagger-${index + 1}`}
+              style={{ 
+                opacity: servicesVisible ? 1 : 0,
+                transform: servicesVisible ? 'translateY(0)' : 'translateY(30px)',
+                transition: `all 0.8s ease-out ${index * 200}ms`
+              }}
             >
               {/* Service Icon - White Outline Style */}
               <div className="mb-4 flex justify-center">

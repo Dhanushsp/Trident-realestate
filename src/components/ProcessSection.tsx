@@ -79,7 +79,7 @@ const ProcessSection: React.FC = () => {
                  <div key={index}>
                    <div className="flex items-start space-x-4">
                      {/* Icon */}
-                     <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                     <div className="w-12 h-12 bg-[#7a8a6a] rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
                        {step.icon}
                      </div>
                      

@@ -82,35 +82,37 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ onNavigate }) => {
   <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#262A10]/80 to-transparent z-15"></div>
 
       {/* Content */}
-  <div
-    className={`
-      z-20 p-4
-      absolute bottom-4 left-4 w-[90%]     /* 📱 Small screens: bottom edge with padding */
-      sm:bottom-8 sm:left-8
-      lg:absolute lg:left-8 lg:top-1/2 lg:-translate-y-1/2 lg:w-2/3 lg:p-8
-    `}
-  >
-    <h1
-      className={`text-2xl sm:text-3xl lg:text-6xl font-bold mb-3 lg:mb-6 leading-tight ${slides[currentSlide].textColor} animate-fade-in-up`}
-      style={{ animationDelay: '0.2s' }}
-    >
+      <div
+        className={`
+          z-20 p-4
+          absolute inset-0 flex flex-col justify-center items-center text-center
+          w-full h-full
+          animate-fade-in-up
+        `}
+      >
+        <div className="max-w-4xl mx-auto px-4">
+          <h1
+            className={`text-2xl sm:text-3xl lg:text-6xl font-bold mb-3 lg:mb-6 leading-tight ${slides[currentSlide].textColor} animate-fade-in-up`}
+            style={{ animationDelay: '0.2s' }}
+          >
             {slides[currentSlide].title}
           </h1>
-    <p
-      className={`text-sm sm:text-base lg:text-xl mb-4 lg:mb-8 max-w-xl leading-relaxed ${slides[currentSlide].textColor} animate-fade-in-up`}
-      style={{ animationDelay: '0.4s' }}
-    >
+          <p
+            className={`text-sm sm:text-base lg:text-xl mb-4 lg:mb-8 max-w-2xl mx-auto leading-relaxed ${slides[currentSlide].textColor} animate-fade-in-up`}
+            style={{ animationDelay: '0.4s' }}
+          >
             {slides[currentSlide].description}
           </p>
-    <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <button
               onClick={() => onNavigate?.('contact')}
-              className="border rounded-lg border-white text-white px-5 py-2 sm:px-6 sm:py-2.5 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-[#7a8a6a] transition-all duration-200 inline-block text-center text-sm sm:text-base lg:text-lg"
+              className=" rounded-lg  bg-[#7a8a6a] text-white px-5 py-2 sm:px-6 sm:py-2.5 lg:px-8 lg:py-3 rounded-lg font-semibold hover:bg-black hover:text-white transition-all duration-200 inline-block text-center text-sm sm:text-base lg:text-lg"
             >
               Contact Now
             </button>
           </div>
         </div>
+      </div>
 </section>
 
 

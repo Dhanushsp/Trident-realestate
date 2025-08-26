@@ -41,11 +41,11 @@ const TrustedPartners: React.FC<TrustedPartnersProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div ref={headerRef} className={`text-center mb-16 scroll-animate ${headerVisible ? 'animate' : ''}`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-black mb-6">
             Trusted by Leading
             <span className="text-black"> Developers</span>
           </h2>
-          <p className="text-xl text-black max-w-3xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-black max-w-3xl mx-auto leading-relaxed">
             We maintain strong partnerships with Dubai's most prestigious property developers, 
             ensuring our clients have access to the finest real estate opportunities.
           </p>
@@ -83,9 +83,9 @@ const TrustedPartners: React.FC<TrustedPartnersProps> = ({ onNavigate }) => {
           </p>
           <button
             onClick={() => onNavigate?.('contact')}
-            className="inline-flex items-center bg-black text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center bg-black text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
             Contact Now
