@@ -53,12 +53,12 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       {/* Background City Skyline */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-blue-900/20"></div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex justify-center">

@@ -102,7 +102,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
         </div>
         
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight" style={{ fontFamily: '"Archivo Black", sans-serif' }}>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight archivo-black">
             Our Services,<br />
             Your Advantage
           </h1>
@@ -256,6 +256,77 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
 
          </div>
 
+         {/* Services Row - Three Icons in Single Row */}
+          <div className="mt-24 bg-black py-16 rounded-2xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Why Choose Horizon Hills?
+              </h2>
+              {/* <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                We specialize in buying, selling, leasing, and investment consulting, ensuring seamless transactions and expert guidance in Dubai.
+              </p> */}
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-20 justify-items-center">
+              {/* Service 1 - Proven Investment Expertise */}
+              <div className="text-center group">
+                <div className="mb-4 flex justify-center">
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <img 
+                      src="https://horizonhillsrealestate.com/wp-content/uploads/2025/03/analytics-ezgif.com-optimize.gif.webp" 
+                      alt="Proven Investment Expertise"
+                      className="w-full h-full object-contain filter brightness-0 invert"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-lg font-medium text-white leading-tight mb-2">
+                  Proven Investment Expertise
+                </h3>
+                {/* <p className="text-sm text-gray-300 max-w-[200px]">
+                  Strategic insights and market expertise for high-yield real estate investments
+                </p> */}
+              </div>
+
+              {/* Service 2 - Seamless Property Transactions */}
+              <div className="text-center group">
+                <div className="mb-4 flex justify-center">
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <img 
+                      src="https://horizonhillsrealestate.com/wp-content/uploads/2025/03/keys-ezgif.com-optimize.gif.webp" 
+                      alt="Seamless Property Transactions"
+                      className="w-full h-full object-contain filter brightness-0 invert"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-lg font-medium text-white leading-tight mb-2">
+                  Seamless Property Transactions
+                </h3>
+                {/* <p className="text-sm text-gray-300 max-w-[200px]">
+                  End-to-end solutions for buying, selling, and leasing properties with confidence
+                </p> */}
+              </div>
+
+              {/* Service 3 - Trusted Real Estate Advisory */}
+              <div className="text-center group">
+                <div className="mb-4 flex justify-center">
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <img 
+                      src="https://horizonhillsrealestate.com/wp-content/uploads/2025/03/shield1-ezgif.com-optimize.gif.webp" 
+                      alt="Trusted Real Estate Advisory"
+                      className="w-full h-full object-contain filter brightness-0 invert"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-lg font-medium text-white leading-tight mb-2">
+                  Trusted Real Estate Advisory
+                </h3>
+                {/* <p className="text-sm text-gray-300 max-w-[200px]">
+                  Expert guidance and personalized solutions for your real estate journey
+                </p> */}
+              </div>
+            </div>
+          </div>
+
           {/* CTA Section */}
           <div className="relative text-center mt-16 rounded-2xl overflow-hidden">
             {/* Background Image */}
@@ -278,6 +349,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack }) => {
               </button>
             </div>
           </div>
+
+          
         </div>
       </section>
     </div>

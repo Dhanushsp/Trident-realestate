@@ -1,7 +1,11 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (page: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const { elementRef: footerRef, isVisible: footerVisible } = useScrollAnimation();
   
   return (
@@ -18,10 +22,10 @@ const Footer: React.FC = () => {
                   className="h-12 w-auto rounded-xl"
                 />
                 <div>
-                  <h2 className="text-lg font-bold text-white" style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}>
+                  <h2 className="text-lg font-bold text-white archivo-black">
                     TRIDENT LUXURY
                   </h2>
-                  <p className="text-sm text-[#899878] font-semibold" style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}>
+                  <p className="text-sm text-[#899878] font-semibold cmu-serif">
                     Luxury Real Estate, Redefined
                   </p>
                 </div>
@@ -37,22 +41,22 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#home" className="text-gray-200 hover:text-[#899878] transition-colors duration-200">
+                <a href="#home" className="text-gray-200 hover:text-[#899878] transition-colors duration-200 cursor-pointer" onClick={() => onNavigate('home')}>
                   Home
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-200 hover:text-[#899878] transition-colors duration-200">
+                <a href="#services" className="text-gray-200 hover:text-[#899878] transition-colors duration-200 cursor-pointer" onClick={() => onNavigate('services')}>
                   Services
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-200 hover:text-[#899878] transition-colors duration-200">
+                <a href="#about" className="text-gray-200 hover:text-[#899878] transition-colors duration-200 cursor-pointer" onClick={() => onNavigate('about')}>
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-200 hover:text-[#899878] transition-colors duration-200">
+                <a href="#contact" className="text-gray-200 hover:text-[#899878] transition-colors duration-200 cursor-pointer" onClick={() => onNavigate('contact')}>
                   Contact
                 </a>
               </li>
@@ -66,7 +70,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-[#899878] mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © 2025 Horizon Hills Real Estate. All rights reserved.
+              © 2025 Trident Luxury Real Estate. All rights reserved. | <a href="http://dhanushdev.in/">Made by Dhanush</a>
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-300 hover:text-[#899878] text-sm transition-colors duration-200">

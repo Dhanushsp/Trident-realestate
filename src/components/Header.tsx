@@ -65,16 +65,10 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               className="h-10 sm:h-12 w-auto rounded-xl"
             />
             <div>
-              <h1
-                className="text-base sm:text-xl font-bold text-white"
-                style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}
-              >
+              <h1 className="text-base sm:text-xl font-bold text-white archivo-black">
                 TRIDENT LUXURY
               </h1>
-              <p
-                className="text-xs sm:text-sm text-white"
-                style={{ fontFamily: 'Avenir Next Arabic, Arial, sans-serif' }}
-              >
+              <p className="text-xs sm:text-sm text-white cmu-serif">
                 Luxury Real Estate, Redefined
               </p>
             </div>
@@ -106,7 +100,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             <a 
               href="#contact" 
               className="hover:text-[#899878] transition-colors duration-200 font-medium cursor-pointer"
-              onClick={() => handleNavigation('home')}
+              onClick={() => handleNavigation('contact')}
             >
               Contact
             </a>
@@ -185,7 +179,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
                   isMenuOpen ? 'animate-fade-in-up' : ''
                 }`}
                 style={{ animationDelay: '0.4s' }}
-                onClick={() => handleNavigation('home')}
+                onClick={() => handleNavigation('contact')}
               >
                 Contact
               </a>

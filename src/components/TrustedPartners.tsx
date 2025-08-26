@@ -7,54 +7,28 @@ const TrustedPartners: React.FC = () => {
   
   const partners = [
     {
-      name: "Emaar Properties",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand1.jpg"
     },
     {
-      name: "DAMAC Properties",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand2.jpg"
     },
     {
-      name: "Nakheel",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand3.jpg"
     },
     {
-      name: "Sobha Realty",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand4.jpg"
     },
     {
-      name: "Meraas",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand5.jpg"
     },
     {
-      name: "Azizi Developments",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand6.jpg"
     },
     {
-      name: "Select Group",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand7.jpg"
     },
     {
-      name: "Binghatti",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
-    },
-    {
-      name: "Omniyat",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
-    },
-    {
-      name: "Al Habtoor Group",
-      logo: "https://cdn.pixabay.com/photo/2017/01/31/13/39/company-2024125_1280.png",
-      website: "#"
+      logo: "/brand-logs/brand8.jpg"
     }
   ];
 
@@ -74,34 +48,22 @@ const TrustedPartners: React.FC = () => {
         </div>
 
         {/* Partners Grid */}
-        <div ref={gridRef} className={`grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-12 scroll-animate-scale ${gridVisible ? 'animate' : ''}`}>
+        <div ref={gridRef} className={`grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 scroll-animate-scale ${gridVisible ? 'animate' : ''}`}>
           {partners.map((partner, index) => (
             <div
               key={index}
               className="group relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer"
-              onClick={() => window.open(partner.website, '_blank')}
             >
               {/* Logo Container */}
               <div className="relative overflow-hidden rounded-xl bg-gray-50 p-4 h-24 flex items-center justify-center">
                 <img
                   src={partner.logo}
-                  alt={`${partner.name} logo`}
+                  alt="Brand logo"
                   className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
                 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-[#899878]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-center justify-center">
-                                  <div className="bg-black text-white px-3 py-1 rounded-full text-xs font-semibold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  Partner
-                </div>
-                </div>
-              </div>
-
-              {/* Company Name */}
-              <div className="mt-4 text-center">
-                <h3 className="text-sm font-semibold text-black group-hover:text-black transition-colors duration-300">
-                  {partner.name}
-                </h3>
+                {/* Hover Overlay - No Text */}
+                <div className="absolute inset-0 bg-[#899878]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               </div>
 
               {/* Hover Effect Border */}
@@ -122,7 +84,7 @@ const TrustedPartners: React.FC = () => {
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-            Get Started Today
+            Contact Now
           </a>
         </div>
       </div>

@@ -5,105 +5,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 @import url('https://fontlibrary.org//face/cmu-serif');
 
-/* Apply Archivo Black font to all headings */
-h1, h2, h3, h4, h5, h6,
-.text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl,
-.font-bold, .font-semibold {
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* Global font definitions */
+:root {
+  --heading-font: "Archivo Black", sans-serif;
+  --body-font: 'CMUSerifRoman', serif;
+  --header-footer: #262A10;
+  --buttons-icons: #899878;
+  --base-color: #ffffff;
+  --text-color: #000000;
 }
 
-/* Ensure specific heading classes use Archivo Black */
-.heading-archivo,
-.title-archivo,
-.section-title {
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Utility class for CMU Serif */
-.cmu-serif {
-  font-family: 'CMUSerifRoman', serif;
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Ensure headings override body font */
+/* Apply Archivo Black to ALL headings and heading-like elements */
 h1, h2, h3, h4, h5, h6,
 .text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl,
 .font-bold, .font-semibold,
-.heading-archivo, .title-archivo, .section-title {
-  font-family: "Archivo Black", sans-serif !important;
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Additional utility class for Archivo Black */
+.heading-archivo, .title-archivo, .section-title,
 .archivo-black-regular {
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: var(--heading-font) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 
-/* Apply CMU Serif to all body text */
-body, p, span, div, a, li, td, th, input, textarea, button, label {
-  font-family: 'CMUSerifRoman', serif;
-  font-weight: normal;
-  font-style: normal;
+/* Apply CMU Serif to ALL body text and non-heading elements */
+body, p, span, div, a, li, td, th, input, textarea, button, label,
+.text-sm, .text-base, .text-lg, .text-xl,
+.cmu-serif {
+  font-family: var(--body-font) !important;
+  font-weight: normal !important;
+  font-style: normal !important;
 }
 
 /* Ensure headings maintain good readability */
 h1 {
   font-size: 2.5rem;
   line-height: 1.2;
+  font-family: var(--heading-font) !important;
 }
 
 h2 {
   font-size: 2rem;
   line-height: 1.3;
+  font-family: var(--heading-font) !important;
 }
 
 h3 {
   font-size: 1.5rem;
   line-height: 1.4;
+  font-family: var(--heading-font) !important;
 }
 
 h4 {
   font-size: 1.25rem;
   line-height: 1.4;
+  font-family: var(--heading-font) !important;
 }
 
 h5 {
   font-size: 1.125rem;
   line-height: 1.4;
+  font-family: var(--heading-font) !important;
 }
 
 h6 {
   font-size: 1rem;
   line-height: 1.4;
+  font-family: var(--heading-font) !important;
 }
 
-@font-face {
-  font-family: 'nohemi';
-  src: url('https://horizonhillsrealestate.com/wp-content/uploads/useanyfont/3883Nohemi.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+/* Override any conflicting font definitions */
+* {
+  font-family: var(--body-font);
 }
 
-body {
-  margin: 0;
-  font-family: 'nohemi', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Ensure headings override the global font */
+h1, h2, h3, h4, h5, h6,
+.text-2xl, .text-3xl, .text-4xl, .text-5xl, .text-6xl,
+.font-bold, .font-semibold {
+  font-family: var(--heading-font) !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Utility classes for explicit font control */
+.archivo-black {
+  font-family: var(--heading-font) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+.cmu-serif {
+  font-family: var(--body-font) !important;
+  font-weight: normal !important;
+  font-style: normal !important;
 }
 
 /* Custom scrollbar */
@@ -288,15 +279,7 @@ code {
 }
 
 .mobile-nav-close-enter {
-  animation: slideInFromBottom 0.3s ease-out 0.1s forwards;
-}
-
-/* Custom color variables */
-:root {
-  --header-footer: #262A10;
-  --buttons-icons: #899878;
-  --base-color: #ffffff;
-  --text-color: #000000;
+  animation: slideInBottom 0.3s ease-out 0.1s forwards;
 }
 
 /* Avenir Next Arabic Font */

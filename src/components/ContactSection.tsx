@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  onNavigate: (page: string) => void;
+}
+
+const ContactSection: React.FC<ContactSectionProps> = ({ onNavigate }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,12 +30,20 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-6 archivo-black">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto cmu-serif">
             Ready to start your real estate journey? Contact us today for expert guidance and personalized solutions.
           </p>
+          <div className="mt-8">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="bg-black text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Contact Us
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
