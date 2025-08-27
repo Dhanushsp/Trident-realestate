@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>.set-apart-section {
+  padding: 80px 50px;
+  background: rgba(191, 245, 121, 0.1); /* light olive glass effect */
+  color: #000;
+  overflow: hidden;
+}
+
+.set-apart-header {
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.set-apart-header.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.set-apart-header .small-text {
+  font-family: 'CMU Serif', serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.set-apart-header .big-text {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 36px;
+}
+
+.boxes-wrapper {
+  position: relative;
+}
+
+.boxes-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.sa-box {
+  flex: 0 0 350px;
+  min-height: 350px;
+  border: 2px solid #262A10;
+  padding: 30px;
+  background: rgba(216, 231, 100, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+   opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+.sa-box:hover {
+  transform: scale(0.92);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.sa-box.show {
+  opacity: 1;
+  transform: translateY(0); /* slide up into view */
+}
+
+.sa-box h3 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 24px;
+}
+
+.sa-box p {
+  font-family: 'CMU Serif', serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Scrollbar Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 2px;
+}
+
+.scroll-bar {
+  height: 100%;
+  width: 0;
+  background: #899878;
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+/* Hide default scrollbar */
+.boxes-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Left/Right Arrows */
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(137,152,18,0.3);
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+  background: rgba(137,152,18,0.6);
+}
+
+.arrow-left { left: 0; }
+.arrow-right { right: 0; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sa-box {
+    flex: 0 0 280px;
+    min-height: 280px;
+  }
+  .arrow-left, .arrow-right {
+    display: none; /* hide arrows on mobile; swipe works */
+  }
+  .set-apart-header .big-text {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+<body>
+    <section class="set-apart-section">
+  <div class="set-apart-header animate-item">
+    <p class="small-text">WHAT SETS US APART</p>
+    <h2 class="big-text">BUILT DIFFERENT, TRUSTED ALWAYS</h2>
+  </div>
+
+  <div class="boxes-wrapper">
+    <!-- Left Arrow -->
+    <button class="arrow-left">&#10094;</button>
+
+    <div class="boxes-container">
+      <div class="sa-box">
+        <h3>Transparency</h3>
+        <p>Clear communication at every step, so you always know where you stand.</p>
+      </div>
+      <div class="sa-box">
+        <h3>Reliability</h3>
+        <p>Your goals are our priority, count on us long after the deal is closed.</p>
+      </div>
+      <div class="sa-box">
+        <h3>Legal Precision</h3>
+        <p>We deliver peace of mind through meticulous legal oversight and a seamless, secure process.</p>
+      </div>
+      <div class="sa-box">
+        <h3>Client Commitment</h3>
+        <p>Your vision drives our approach. We prioritize your objectives with unwavering dedication and tailored service.</p>
+      </div>
+      <div class="sa-box">
+        <h3>Market Expertise</h3>
+        <p>Powered by data and insight, our strategies are guided by in-depth research and real-time market intelligence.</p>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="arrow-right">&#10095;</button>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-bar"></div>
+    </div>
+  </div>
+</section>
+<script>// ===== Animate header and boxes on scroll =====
+document.addEventListener("DOMContentLoaded", () => {
+  const setApartHeader = document.querySelector(".set-apart-header");
+  const saBoxes = document.querySelectorAll(".sa-box");
+  const boxesContainer = document.querySelector(".boxes-container");
+  const scrollBar = document.querySelector(".scroll-bar");
+
+  // Intersection Observer for header + boxes
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animate header
+        setApartHeader.classList.add("show");
+
+        // Animate boxes with stagger
+        saBoxes.forEach((box, i) => {
+          setTimeout(() => box.classList.add("show"), i * 200);
+        });
+
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(setApartHeader);
+
+  // ===== Scrollbar update =====
+  boxesContainer.addEventListener("scroll", () => {
+    const scrollWidth = boxesContainer.scrollWidth - boxesContainer.clientWidth;
+    const scrollLeft = boxesContainer.scrollLeft;
+    const scrollPercent = (scrollLeft / scrollWidth) * 100;
+    scrollBar.style.width = scrollPercent + "%";
+  });
+
+  // ===== Left/Right Arrows =====
+  const leftArrow = document.querySelector('.arrow-left');
+  const rightArrow = document.querySelector('.arrow-right');
+
+  leftArrow.addEventListener('click', () => {
+    boxesContainer.scrollBy({ left: -370, behavior: 'smooth' });
+  });
+  rightArrow.addEventListener('click', () => {
+    boxesContainer.scrollBy({ left: 370, behavior: 'smooth' });
+  });
+});
+</script>
+    
+</body>
+</html>

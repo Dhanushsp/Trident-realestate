@@ -18,12 +18,17 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
+    email: '',
     lookingFor: '',
     otherLookingFor: '',
     propertyType: '',
     bedrooms: 'Studio',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -32,22 +37,63 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Prepare the data to send
-    const submitData = {
-      ...formData,
-      // If "Other" is selected, use the otherLookingFor value
-      lookingFor: formData.lookingFor === 'Other (please specify)' 
-        ? formData.otherLookingFor 
-        : formData.lookingFor
-    };
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage('');
     
-    console.log('Form submitted with data:', submitData);
-    
-    // Handle form submission - redirect to contact page for now
-    window.location.href = 'https://tridentluxury.com/contact-us/';
+    try {
+      // Prepare the data to send
+      const submitData = {
+        ...formData,
+        // If "Other" is selected, use the otherLookingFor value
+        lookingFor: formData.lookingFor === 'Other (please specify)' 
+          ? formData.otherLookingFor 
+          : formData.lookingFor
+      };
+      
+      // Send form data to Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with your actual access key
+          ...submitData,
+          subject: `New Contact Form Submission from ${submitData.fullName}`,
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (response.status === 200) {
+        setSubmitStatus('success');
+        setSubmitMessage('Thank you! Your message has been sent successfully. We will get back to you soon.');
+        
+        // Clear all form fields
+        setFormData({
+          fullName: '',
+          phoneNumber: '',
+          email: '',
+          lookingFor: '',
+          otherLookingFor: '',
+          propertyType: '',
+          bedrooms: 'Studio',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('Sorry, there was an error sending your message. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -68,7 +114,9 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
             ref={heroTitleRef}
             className={`text-2xl sm:text-5xl font-bold mb-8 leading-tight archivo-black scroll-animate ${heroTitleVisible ? 'animate' : ''}`}
           >
-            Contact Us
+            Let's Talk 
+            Estate,
+            We're Here to Help
           </h1>
         </div>
       </section>
@@ -123,6 +171,23 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                       placeholder="Your Contact Number"
                     />
                   </div>
+                </div>
+
+                {/* Email Field */}
+                <div className="scroll-animate">
+                  <label htmlFor="email" className="block text-lg font-semibold text-white mb-3 cmu-serif">
+                    Email Address:
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:border-black transition-all duration-200 text-black placeholder-gray-500 cmu-serif"
+                    placeholder="your.email@example.com"
+                  />
                 </div>
 
                 {/* Looking For Section */}
@@ -229,11 +294,34 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                 <div ref={submitButtonRef} className={`text-center pt-6 scroll-animate ${submitButtonVisible ? 'animate' : ''}`}>
                   <button
                     type="submit"
-                    className="bg-[#899878] text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    disabled={isSubmitting}
+                    className={`px-12 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                      isSubmitting 
+                        ? 'bg-gray-400 cursor-not-allowed' 
+                        : 'bg-[#899878] hover:bg-gray-800 transform hover:scale-105'
+                    } text-white`}
                   >
-                    Submit
+                    {isSubmitting ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        <span>Sending...</span>
+                      </div>
+                    ) : (
+                      'Submit'
+                    )}
                   </button>
                 </div>
+                
+                {/* Success/Error Message */}
+                {submitStatus !== 'idle' && (
+                  <div className={`text-center p-4 rounded-lg transition-all duration-300 ${
+                    submitStatus === 'success' 
+                      ? 'bg-green-100 text-green-800 border border-green-200' 
+                      : 'bg-red-100 text-red-800 border border-red-200'
+                  }`}>
+                    <p className="font-medium">{submitMessage}</p>
+                  </div>
+                )}
               </form>
             </div>
           </div>
