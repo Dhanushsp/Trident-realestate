@@ -29,7 +29,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
   const { elementRef: marketExpertiseRef, isVisible: marketExpertiseVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
-    <div className="min-h-screen">
+    <div id="about" className="min-h-screen">
       {/* Hero Section with Image and Text */}
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
@@ -53,7 +53,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
           <button 
             ref={heroButtonRef}
             onClick={() => onNavigate('contact')}
-            className={`bg-white text-black px-6 py-3 rounded-xl font-bold text-base hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl scroll-animate ${heroButtonVisible ? 'animate' : ''}`}
+            className={`bg-white text-black px-4 py-2 rounded-xl font-bold text-sm hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl scroll-animate ${heroButtonVisible ? 'animate' : ''}`}
           >
             Let's Talk
           </button>
@@ -61,7 +61,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
       </section>
 
       {/* About Us Content */}
-      <section id="about" className="py-24 bg-white">
+      <section  className="py-24  bg-white">
         <div className="container mx-auto px-4">
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
@@ -266,38 +266,39 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
           {/* Trusted Professionals Section */}
-          <div className="rounded-3xl pt-16 px-16 mt-24">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
-              <div className="lg:col-span-2">
-                <h1 className="text-2xl sm:text-4xl font-bold text-black mb-8 leading-tight">
-                  TRUSTED PROFESSIONALS, DRIVING PROPERTY SUCCESS WITH CLARITY AND CARE.
-                </h1>
-              </div>
+<div className="rounded-3xl px-6 sm:px-16">
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+    <div className="lg:col-span-2 text-center lg:text-left">
+      <h1 className="text-2xl sm:text-4xl font-bold text-black mb-8 leading-tight">
+        TRUSTED PROFESSIONALS, DRIVING PROPERTY SUCCESS WITH CLARITY AND CARE.
+      </h1>
+    </div>
 
-              {/* Team Member Cards */}
-              <div className="lg:col-span-1 space-y-6">
-                {/* Team Member 1 */}
-                <div className="bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg">
-                  <div className="w-52 h-64 rounded-xl overflow-hidden mb-4 mx-auto">
-                    <img 
-                      src={owner}
-                      alt="Rahul Zaveri"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h4 className="text-xl font-bold text-black mb-2">Rahul Zaveri</h4>
-                  <p className="text-black mb-4">Founder of Trident Luxury</p>
-                  <p className="text-sm italic mb-4">Premium Real Estate Sales Strategist</p>
-                  <button 
-                    onClick={() => onNavigate('contact')}
-                    className="inline-flex items-center bg-[#899878] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#7a8a6a] transition-all duration-200"
-                  >
-                    Contact
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Team Member Cards */}
+    <div className="lg:col-span-1 flex justify-center">
+      {/* Team Member 1 */}
+      <div className="bg-[#9baa8e] rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
+        <div className="w-auto h-auto rounded-xl overflow-hidden mb-4 mx-auto">
+          <img 
+            src={owner}
+            alt="Rahul Zaveri"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <h4 className="text-xl font-bold text-black mb-2">Rahul Zaveri</h4>
+        <p className="text-black mb-2">Founder of Trident Luxury</p>
+        <p className="text-sm italic mb-4">Premium Real Estate Sales Strategist</p>
+        <button 
+          onClick={() => onNavigate('contact')}
+          className="inline-flex items-center bg-[#738064] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#7a8a6a] transition-all duration-200"
+        >
+          Contact
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
       </section>
     </div>

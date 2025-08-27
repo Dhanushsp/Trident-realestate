@@ -41,7 +41,7 @@ function App() {
           <>
             <HeroSlider onNavigate={handleNavigate} />
             <ServicesSection />
-            <AboutSection />
+            <AboutSection onNavigate={handleNavigate} />
             <VideoSection />
             <TrustedPartners onNavigate={handleNavigate} />
             <ScrollingBanner />

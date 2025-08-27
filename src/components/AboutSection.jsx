@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import owner from '../assets/owner.png';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const AboutSection = () => {
+const AboutSection = ({ onNavigate }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -207,38 +207,35 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Trusted Professionals Section */}
-        <div ref={teamRef} className={`rounded-3xl p-16 mt-24 scroll-animate ${teamVisible ? 'animate' : ''}`}>
+          {/* Trusted Professionals Section */}
+        <div className="rounded-3xl pt-16 px-6 sm:px-16 mt-24">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
-            <div className="lg:col-span-2">
-              <h1 className="text-3xl sm:text-4xl font-bold text-black mb-8 leading-tight">
-                TRUSTED
-                PROFESSIONALS,
-                DRIVING PROPERTY
-                SUCCESS WITH CLARITY AND CARE.
+            <div className="lg:col-span-2 text-center lg:text-left">
+              <h1 className="text-2xl sm:text-4xl font-bold text-black mb-8 leading-tight">
+                TRUSTED PROFESSIONALS, DRIVING PROPERTY SUCCESS WITH CLARITY AND CARE.
               </h1>
             </div>
-
+        
             {/* Team Member Cards */}
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 flex justify-center">
               {/* Team Member 1 */}
-              <div className="bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg" style={{ borderColor: '#7a8a6a' }}>
-                <div className="w-52 h-64 rounded-xl overflow-hidden mb-4 mx-auto">
-                  <img
+              <div className="bg-[#9baa8e] rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
+                <div className="w-auto h-auto rounded-xl overflow-hidden mb-4 mx-auto">
+                  <img 
                     src={owner}
                     alt="Rahul Zaveri"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <h4 className="text-xl font-bold text-black mb-2">Rahul Zaveri</h4>
-                <p className="text-black mb-4">Founder of Trident Luxury</p>
+                <p className="text-black mb-2">Founder of Trident Luxury</p>
                 <p className="text-sm italic mb-4">Premium Real Estate Sales Strategist</p>
-                <a
-                  href="#"
-                  className="inline-flex items-center bg-[#899878] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#7a8a6a] transition-all duration-200"
+                <button 
+                  onClick={() => onNavigate('contact')}
+                  className="inline-flex items-center bg-[#657058] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#7a8a6a] transition-all duration-200"
                 >
                   Contact
-                </a>
+                </button>
               </div>
             </div>
           </div>
