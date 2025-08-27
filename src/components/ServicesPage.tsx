@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import AboutCarousel from './AboutCarousel';
 
 interface ServicesPageProps {
   onBack: () => void;
@@ -11,6 +10,15 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { elementRef: servicesGridRef, isVisible: servicesGridVisible } = useScrollAnimation();
   const { elementRef: valuesRef, isVisible: valuesVisible } = useScrollAnimation();
+  
+  // Add missing scroll animation hooks for features section
+  const { elementRef: featuresHeaderRef, isVisible: featuresHeaderVisible } = useScrollAnimation();
+  const { elementRef: featuresTitleRef, isVisible: featuresTitleVisible } = useScrollAnimation();
+  const { elementRef: transparencyRef, isVisible: transparencyVisible } = useScrollAnimation();
+  const { elementRef: reliabilityRef, isVisible: reliabilityVisible } = useScrollAnimation();
+  const { elementRef: legalPrecisionRef, isVisible: legalPrecisionVisible } = useScrollAnimation();
+  const { elementRef: clientCommitmentRef, isVisible: clientCommitmentVisible } = useScrollAnimation();
+  const { elementRef: marketExpertiseRef, isVisible: marketExpertiseVisible } = useScrollAnimation();
   
   const services = [
     {
@@ -131,7 +139,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
           {/* Services Grid */}
-          <div ref={servicesGridRef} className={`bg-[#b9c9ab] p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto scroll-animate ${servicesGridVisible ? 'animate' : ''}`}>
+          <div ref={servicesGridRef} className={`bg-[#abb8a0] p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto scroll-animate ${servicesGridVisible ? 'animate' : ''}`}>
             {services.map((service, index) => (
               <div key={service.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 {/* Service Image with Overlapping Text Box */}
@@ -156,15 +164,23 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
             ))}
           </div>
 
-           {/* What Sets Us Apart Section */}
-          <div className="rounded-3xl px-8 py-16">
-            <div className="text-center mb-12">
-              <p className="text-lg text-black mb-4">
-                What Sets Us Apart
-              </p>
-              <h2 className="text-2xl sm:text-4xl font-bold text-black mb-8">
-                BUILT DIFFERENT, TRUSTED ALWAYS
-              </h2>
+          {/* What Sets Us Apart Section */}
+          <div className=" rounded-3xl px-8 pt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
+              <div className="lg:col-span-3">
+                <p 
+                  ref={featuresHeaderRef}
+                  className={`text-lg text-black mb-4 scroll-animate ${featuresHeaderVisible ? 'animate' : ''}`}
+                >
+                  What Sets Us Apart
+                </p>
+                <h2 
+                  ref={featuresTitleRef}
+                  className={`text-2xl sm:text-4xl font-bold text-black mb-8 scroll-animate ${featuresTitleVisible ? 'animate' : ''}`}
+                >
+                  BUILT DIFFERENT, TRUSTED ALWAYS
+                </h2>
+              </div>
             </div>
 
             {/* Core Values Vertical List */}
@@ -172,7 +188,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
               <div className="space-y-6">
                 {/* Value 1 - Transparency */}
                 <div 
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-1`}
+                  ref={transparencyRef}
+                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${transparencyVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -189,7 +206,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 2 - Reliability */}
                 <div 
-                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-2`}
+                  ref={reliabilityRef}
+                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate ${reliabilityVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -206,7 +224,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 3 - Legal Precision */}
                 <div 
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-3`}
+                  ref={legalPrecisionRef}
+                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${legalPrecisionVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -223,7 +242,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 4 - Client Commitment */}
                 <div 
-                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-4`}
+                  ref={clientCommitmentRef}
+                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate ${clientCommitmentVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -240,7 +260,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 5 - Market Expertise */}
                 <div 
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-5`}
+                  ref={marketExpertiseRef}
+                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${marketExpertiseVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -259,7 +280,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
          {/* Services Row - Three Icons in Single Row */}
-          <div className="mt-24 bg-[#7d8d70] py-16 rounded-2xl">
+          <div className="mt-24 bg-[#879976] py-8 px-4 rounded-2xl">
             
             
             <div className="grid grid-cols-3 gap-4 md:gap-8 lg:gap-20 justify-items-center">

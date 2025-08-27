@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
 import owner from '../assets/owner.jpg';
 
 interface AboutUsPageProps {
@@ -21,9 +20,13 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
   const { elementRef: whoWeAreTitleRef, isVisible: whoWeAreTitleVisible } = useScrollAnimation<HTMLHeadingElement>();
   const { elementRef: whoWeAreTextRef, isVisible: whoWeAreTextVisible } = useScrollAnimation<HTMLParagraphElement>();
   const { elementRef: whoWeAreImageRef, isVisible: whoWeAreImageVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: trustedProfessionalsRef, isVisible: trustedProfessionalsVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: teamMemberRef, isVisible: teamMemberVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: whatSetsUsApartRef, isVisible: whatSetsUsApartVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: featuresHeaderRef, isVisible: featuresHeaderVisible } = useScrollAnimation<HTMLParagraphElement>();
+  const { elementRef: featuresTitleRef, isVisible: featuresTitleVisible } = useScrollAnimation<HTMLHeadingElement>();
+  const { elementRef: transparencyRef, isVisible: transparencyVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: reliabilityRef, isVisible: reliabilityVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: legalPrecisionRef, isVisible: legalPrecisionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: clientCommitmentRef, isVisible: clientCommitmentVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: marketExpertiseRef, isVisible: marketExpertiseVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
     <div id="about" className="min-h-screen">
@@ -129,7 +132,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                   ref={whoWeAreTextRef}
                   className={`text-base text-gray-700 leading-relaxed max-w-2xl scroll-animate ${whoWeAreTextVisible ? 'animate' : ''}`}
                 >
-                  Trident Luxury Real Estate is a Dubai-based real estate experts under one roof, we provide smooth, compliant transactions and tailored advisory that puts your goals first.
+                  Trident Luxury Real Estate is a Dubai-based brokerage firm helping clients buy, sell, and invest with clarity and peace of mind. With legal professionals and real estate experts under one roof, we provide smooth, compliant transactions and tailored advisory that puts your goals first.
                 </p>
               </div>
               
@@ -148,14 +151,22 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
           {/* What Sets Us Apart Section */}
-          <div ref={whatSetsUsApartRef} className={`rounded-3xl px-8 py-16 scroll-animate ${whatSetsUsApartVisible ? 'animate' : ''}`}>
-            <div className="text-center mb-12">
-              <p className="text-lg text-black mb-4">
-                What Sets Us Apart
-              </p>
-              <h2 className="text-2xl sm:text-4xl font-bold text-black mb-8">
-                BUILT DIFFERENT, TRUSTED ALWAYS
-              </h2>
+          <div className=" rounded-3xl px-8 py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
+              <div className="lg:col-span-3">
+                <p 
+                  ref={featuresHeaderRef}
+                  className={`text-lg text-black mb-4 scroll-animate ${featuresHeaderVisible ? 'animate' : ''}`}
+                >
+                  What Sets Us Apart
+                </p>
+                <h2 
+                  ref={featuresTitleRef}
+                  className={`text-2xl sm:text-4xl font-bold text-black mb-8 scroll-animate ${featuresTitleVisible ? 'animate' : ''}`}
+                >
+                  BUILT DIFFERENT, TRUSTED ALWAYS
+                </h2>
+              </div>
             </div>
 
             {/* Core Values Vertical List */}
@@ -163,7 +174,8 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
               <div className="space-y-6">
                 {/* Value 1 - Transparency */}
                 <div 
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-1`}
+                  ref={transparencyRef}
+                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${transparencyVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -180,7 +192,8 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 2 - Reliability */}
                 <div 
-                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-2`}
+                  ref={reliabilityRef}
+                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate ${reliabilityVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -197,7 +210,8 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 3 - Legal Precision */}
                 <div 
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-3`}
+                  ref={legalPrecisionRef}
+                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${legalPrecisionVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -214,7 +228,8 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 4 - Client Commitment */}
                 <div 
-                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-4`}
+                  ref={clientCommitmentRef}
+                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate ${clientCommitmentVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -231,7 +246,8 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                 
                 {/* Value 5 - Market Expertise */}
                 <div 
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate scroll-animate-stagger-5`}
+                  ref={marketExpertiseRef}
+                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${marketExpertiseVisible ? 'animate' : ''}`}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
@@ -250,7 +266,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
           {/* Trusted Professionals Section */}
-<div ref={trustedProfessionalsRef} className={`rounded-3xl px-6 sm:px-16 scroll-animate ${trustedProfessionalsVisible ? 'animate' : ''}`}>
+<div className="rounded-3xl px-6 sm:px-16">
   <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
     <div className="lg:col-span-2 text-center lg:text-left">
       <h1 className="text-2xl sm:text-4xl font-bold text-black mb-8 leading-tight">
@@ -261,7 +277,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
     {/* Team Member Cards */}
     <div className="lg:col-span-1 flex justify-center">
       {/* Team Member 1 */}
-      <div ref={teamMemberRef} className={`bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center scroll-animate ${teamMemberVisible ? 'animate' : ''}`}>
+      <div className="bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
         <div className="w-auto h-auto rounded-xl overflow-hidden mb-4 mx-auto">
           <img 
             src={owner}

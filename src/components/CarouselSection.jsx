@@ -44,13 +44,13 @@ const CarouselSection = () => {
 
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: -370, behavior: 'smooth' });
+      containerRef.current.scrollBy({ left: -420, behavior: 'smooth' });
     }
   };
 
   const scrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollBy({ left: 370, behavior: 'smooth' });
+      containerRef.current.scrollBy({ left: 420, behavior: 'smooth' });
     }
   };
 
@@ -97,7 +97,7 @@ const CarouselSection = () => {
           {/* Transparency Box */}
           <div 
             ref={boxesRef}
-            className={`flex-none w-[350px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
+            className={`flex-none w-[400px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '200ms' }}
@@ -108,7 +108,7 @@ const CarouselSection = () => {
 
           {/* Reliability Box */}
           <div 
-            className={`flex-none w-[350px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
+            className={`flex-none w-[400px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '400ms' }}
@@ -119,7 +119,7 @@ const CarouselSection = () => {
 
           {/* Legal Precision Box */}
           <div 
-            className={`flex-none w-[350px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
+            className={`flex-none w-[400px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '600ms' }}
@@ -130,7 +130,7 @@ const CarouselSection = () => {
 
           {/* Client Commitment Box */}
           <div 
-            className={`flex-none w-[350px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
+            className={`flex-none w-[400px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '800ms' }}
@@ -141,7 +141,7 @@ const CarouselSection = () => {
 
           {/* Market Expertise Box */}
           <div 
-            className={`flex-none w-[350px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
+            className={`flex-none w-[400px] min-h-[350px] border-2 border-[#262A10] p-8 rounded-2xl flex flex-col justify-center gap-5 transition-all duration-800 ease-out snap-start hover:scale-95 hover:shadow-lg ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '1000ms' }}
