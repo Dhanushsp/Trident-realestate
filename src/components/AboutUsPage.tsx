@@ -88,7 +88,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                   ref={missionTextRef}
                   className={`text-sm text-white leading-relaxed scroll-animate ${missionTextVisible ? 'animate' : ''}`}
                 >
-                  Trident Luxury is dedicated to elevating the real estate experience into a journey of trust, clarity, and sophistication. We go beyond transactions, offering tailored strategies, insider knowledge, and unrivaled expertise to guide investors and homebuyers toward exceptional opportunities. With a foundation built on discretion, integrity, and precision, we craft lasting relationships while delivering value that transcends the ordinary.
+                  Trident Luxury transactions, offering tailored strategies, insider knowledge, and unrivaled expertise to guide investors and homebuyers toward exceptional opportunities. With  relationships while delivering value that transcends the ordinary.
                 </p>
               </div>
 

@@ -23,7 +23,8 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
     otherLookingFor: '',
     propertyType: '',
     bedrooms: 'Studio',
-    message: ''
+    message: '',
+    subject: '' // Added subject field
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -63,7 +64,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
         body: JSON.stringify({
           access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with your actual access key
           ...submitData,
-          subject: `New Contact Form Submission from ${submitData.fullName}`,
+          subject: submitData.subject || `New Contact Form Submission from ${submitData.fullName}`,
         }),
       });
       
@@ -82,7 +83,8 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
           otherLookingFor: '',
           propertyType: '',
           bedrooms: 'Studio',
-          message: ''
+          message: '',
+          subject: '' // Clear subject field
         });
       } else {
         throw new Error('Failed to submit form');
@@ -190,6 +192,23 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                   />
                 </div>
 
+                {/* Subject/Inquiry Type Field */}
+                <div className="scroll-animate">
+                  <label htmlFor="subject" className="block text-lg font-semibold text-white mb-3 cmu-serif">
+                    Subject/Inquiry Type:
+                  </label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject || ''}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:border-black transition-all duration-200 text-black placeholder-gray-500 cmu-serif"
+                    placeholder="e.g., Property Inquiry, General Question, Consultation Request"
+                  />
+                </div>
+
                 {/* Looking For Section */}
                 <div ref={lookingForRef} className={`scroll-animate ${lookingForVisible ? 'animate' : ''}`}>
                   <label className="block text-lg font-semibold text-white mb-4 cmu-serif">
@@ -211,7 +230,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                     ))}
                   </div>
                   
-                  {/* Other Text Field - Only show when "Other (please specify)" is selected */}
+                  {/* Other Text Field - Only show when "Other" is selected */}
                   {formData.lookingFor === 'Other (please specify)' && (
                     <div className="mt-4">
                       <label htmlFor="otherLookingFor" className="block text-lg font-semibold text-white mb-3 cmu-serif">

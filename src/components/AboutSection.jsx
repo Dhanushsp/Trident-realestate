@@ -23,7 +23,7 @@ const AboutSection = ({ onNavigate }) => {
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">MISSION</h2>
               <p className="text-sm sm:text-base text-white leading-relaxed">
-                Trident Luxury is dedicated to elevating the real estate experience into a journey of trust, we craft lasting relationships while delivering value that transcends the ordinary.
+                Trident Luxury is dedicated to elevating the real estate experience value that transcends the ordinary.
               </p>
             </div>
 
