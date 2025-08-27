@@ -65,11 +65,11 @@ const ProcessSection: React.FC = () => {
           {/* Single Our Process Card */}
           <div ref={processRef} className={`max-w-4xl w-full scroll-animate ${processVisible ? 'animate' : ''}`}>
             <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-gray-100">
-                           <h2 className="text-4xl md:text-5xl font-bold text-[#262A10] mb-6">
+                           <h2 className="text-2xl md:text-4xl font-bold text-[#262A10] mb-6">
                Our Process
              </h2>
              
-             <p className="text-lg text-black leading-relaxed mb-12">
+             <p className="text-sm sm:text-base text-black leading-relaxed mb-12">
                Our structured process ensures a smooth real estate experience—from understanding your goals and analyzing market trends to securing the best property, handling negotiations, and providing ongoing support even after the deal is done.
              </p>
 
@@ -85,10 +85,10 @@ const ProcessSection: React.FC = () => {
                      
                      {/* Content */}
                      <div className="flex-1">
-                       <h3 className="text-xl font-bold text-black mb-2">
+                       <h3 className="text-lg sm:text-xl font-bold text-black mb-2">
                          {step.title}
                        </h3>
-                       <p className="text-black leading-relaxed">
+                       <p className="text-sm sm:text-base text-black leading-relaxed">
                          {step.description}
                        </p>
                      </div>

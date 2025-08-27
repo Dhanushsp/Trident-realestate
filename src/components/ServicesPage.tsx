@@ -125,7 +125,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
       </section>
 
       {/* Services Content Section */}
-      <section className="py-12 bg-[#9baa8e]">
+      <section className="py-12 ">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div ref={headerRef} className={`text-center mb-16 scroll-animate ${headerVisible ? 'animate' : ''}`}>
@@ -139,7 +139,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
           </div>
 
           {/* Services Grid */}
-          <div ref={servicesGridRef} className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto scroll-animate ${servicesGridVisible ? 'animate' : ''}`}>
+          <div ref={servicesGridRef} className={`bg-[#9baa8e] p-8 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto scroll-animate ${servicesGridVisible ? 'animate' : ''}`}>
             {services.map((service, index) => (
               <div key={service.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 {/* Service Image with Overlapping Text Box */}
