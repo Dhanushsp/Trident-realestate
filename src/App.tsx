@@ -12,14 +12,30 @@ import TrustedPartners from './components/TrustedPartners';
 import ScrollingBanner from './components/ScrollingBanner';
 import ProcessSection from './components/ProcessSection';
 import Footer from './components/Footer';
+import { useGlobalScrollAnimation } from './hooks/useGlobalScrollAnimation';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
+  // Initialize global scroll animations for all text elements
+  const { refreshAnimations } = useGlobalScrollAnimation({
+    threshold: 0.1,
+    rootMargin: '0px',
+    triggerOnce: true,
+    animationTypes: ['fade-up', 'fade-left', 'fade-right', 'fade-scale', 'fade-zoom'],
+    delay: 200,
+    staggerDelay: 0.1
+  });
+
   // Scroll to top whenever page changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentPage]);
+    
+    // Refresh animations after page change to animate new content
+    setTimeout(() => {
+      refreshAnimations();
+    }, 300);
+  }, [currentPage, refreshAnimations]);
 
   // Custom navigation function that ensures scroll to top
   const handleNavigate = (page: string) => {

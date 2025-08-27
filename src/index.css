@@ -303,6 +303,84 @@ h1, h2, h3, h4, h5, h6,
   transform: translateY(0);
 }
 
+/* Auto-animation classes for text elements */
+.auto-animate {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auto-animate.animate {
+  opacity: 1;
+}
+
+/* Fade up animation */
+.auto-fade-up {
+  transform: translateY(40px);
+}
+
+.auto-fade-up.animate {
+  transform: translateY(0);
+}
+
+/* Fade left animation */
+.auto-fade-left {
+  transform: translateX(-40px);
+}
+
+.auto-fade-left.animate {
+  transform: translateX(0);
+}
+
+/* Fade right animation */
+.auto-fade-right {
+  transform: translateX(40px);
+}
+
+.auto-fade-right.animate {
+  transform: translateX(0);
+}
+
+/* Fade scale animation */
+.auto-fade-scale {
+  transform: scale(0.8);
+}
+
+.auto-fade-scale.animate {
+  transform: scale(1);
+}
+
+/* Fade zoom animation */
+.auto-fade-zoom {
+  transform: scale(0.9) translateY(20px);
+}
+
+.auto-fade-zoom.animate {
+  transform: scale(1) translateY(0);
+}
+
+/* Performance optimizations */
+.auto-animate {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .auto-animate,
+  .scroll-animate,
+  .scroll-animate-up,
+  .scroll-animate-down,
+  .scroll-animate-left,
+  .scroll-animate-right,
+  .scroll-animate-scale {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Mobile Navigation Animations */
 @keyframes slideInFromTop {
   from {
