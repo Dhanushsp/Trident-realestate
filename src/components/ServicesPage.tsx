@@ -109,11 +109,11 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBack, onNavigate }) => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <img 
-            src="/hero1.jpg" 
+            src="/banner2.jpg" 
             alt="Services - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-blue-900/60"></div>
+          
         </div>
         
         <div className="relative z-10 text-center text-white px-4">

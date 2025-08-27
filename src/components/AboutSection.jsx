@@ -219,7 +219,7 @@ const AboutSection = ({ onNavigate }) => {
             {/* Team Member Cards */}
             <div className="lg:col-span-1 flex justify-center">
               {/* Team Member 1 */}
-              <div className="bg-[#9baa8e] rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
+              <div className="bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
                 <div className="w-auto h-auto rounded-xl overflow-hidden mb-4 mx-auto">
                   <img 
                     src={owner}

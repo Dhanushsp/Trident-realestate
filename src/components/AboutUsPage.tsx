@@ -34,7 +34,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <img 
-            src="/who-we-are.jpg" 
+            src="/banner1.jpg" 
             alt="About Us - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
@@ -142,7 +142,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
                 className={`relative rounded-3xl overflow-hidden shadow-2xl scroll-animate ${whoWeAreImageVisible ? 'animate' : ''}`}
               >
                 <img 
-                  src="/who-we-are.jpg" 
+                  src="/hero2.jpg" 
                   alt="Luxury Waterfront Property - Trident Luxury Real Estate" 
                   className="w-full h-auto object-cover"
                 />
@@ -277,7 +277,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
     {/* Team Member Cards */}
     <div className="lg:col-span-1 flex justify-center">
       {/* Team Member 1 */}
-      <div className="bg-[#9baa8e] rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
+      <div className="bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
         <div className="w-auto h-auto rounded-xl overflow-hidden mb-4 mx-auto">
           <img 
             src={owner}
