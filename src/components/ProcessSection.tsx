@@ -53,59 +53,74 @@ const ProcessSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background City Skyline */}
-      {/* <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-blue-900/20"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
-      </div> */}
+    <section className="py-16 mt-4 relative overflow-hidden">
+  {/* Background City Skyline */}
+  <div className="absolute inset-0 z-0">
+    <img
+      src="/hero1.jpg"
+      alt="City Skyline"
+      className="w-full h-full object-cover"
+    />
+    {/* Dark overlay for better text visibility */}
+    <div className="absolute inset-0 bg-black/40"></div>
+  </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex justify-center">
-          {/* Single Our Process Card */}
-          <div ref={processRef} className={`max-w-4xl w-full scroll-animate ${processVisible ? 'animate' : ''}`}>
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-gray-100">
-                           <h2 className="text-2xl md:text-4xl font-bold text-[#262A10] mb-6">
-               Our Process
-             </h2>
-             
-             <p className="text-sm sm:text-base text-black leading-relaxed mb-12">
-               Our structured process ensures a smooth real estate experience—from understanding your goals and analyzing market trends to securing the best property, handling negotiations, and providing ongoing support even after the deal is done.
-             </p>
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="flex justify-center">
+      {/* Single Our Process Card */}
+      <div
+        ref={processRef}
+        className={`max-w-4xl w-full scroll-animate ${
+          processVisible ? "animate" : ""
+        }`}
+      >
+        <div className="bg-white/20 backdrop-blur-md rounded-3xl p-12 shadow-2xl border border-white/30">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
+            Our Process
+          </h2>
 
-             {/* Process Steps */}
-             <div className="space-y-6">
-               {processSteps.map((step, index) => (
-                 <div key={index}>
-                   <div className="flex items-start space-x-4">
-                     {/* Icon */}
-                     <div className="w-12 h-12 bg-[#7a8a6a] rounded-xl flex items-center justify-center text-white flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
-                       {step.icon}
-                     </div>
-                     
-                     {/* Content */}
-                     <div className="flex-1">
-                       <h3 className="text-lg sm:text-xl font-bold text-black mb-2">
-                         {step.title}
-                       </h3>
-                       <p className="text-sm sm:text-base text-black leading-relaxed">
-                         {step.description}
-                       </p>
-                     </div>
-                   </div>
-                   
-                   {/* Divider Line */}
-                   {index < processSteps.length - 1 && (
-                     <div className="ml-16 mt-6 h-px bg-black"></div>
-                   )}
-                 </div>
-               ))}
-             </div>
-            </div>
+          <p className="text-sm sm:text-base text-white leading-relaxed mb-12">
+            Our structured process ensures a smooth real estate experience—from
+            understanding your goals and analyzing market trends to securing the
+            best property, handling negotiations, and providing ongoing support
+            even after the deal is done.
+          </p>
+
+          {/* Process Steps */}
+          <div className="space-y-6">
+            {processSteps.map((step, index) => (
+              <div key={index}>
+                <div className="flex items-start space-x-4">
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white flex-shrink-0"
+                       style={{ backgroundColor: "#7a8a6a" }}>
+                    {step.icon}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-white leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Divider Line */}
+                {index < processSteps.length - 1 && (
+                  <div className="ml-16 mt-6 h-px bg-white/40"></div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
   );
 };
 

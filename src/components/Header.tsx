@@ -12,24 +12,32 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const heroSection = document.getElementById('home');
       
-      if (heroSection) {
-        const heroTop = heroSection.offsetTop;
-        const heroHeight = heroSection.offsetHeight;
-        
-        // Apply background when scrolled past the hero section
-        if (scrollPosition > heroTop + heroHeight * 0.8) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
+      // Check if scrolled past any hero section (h-screen sections)
+      // Hero sections are typically 100vh, so we check if scrolled past 80% of viewport height
+      const shouldShowLogo2 = scrollPosition > window.innerHeight * 0.8;
+      
+      if (shouldShowLogo2 !== isScrolled) {
+        setIsScrolled(shouldShowLogo2);
+        console.log(`Logo changed to: ${shouldShowLogo2 ? 'logo2.png' : 'logo.png'}`);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
+  }, [isScrolled]);
 
   // Handle body scroll lock when mobile menu is open
   useEffect(() => {
@@ -60,9 +68,10 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
           {/* Logo and Company Name */}
           <div className="flex items-center space-x-4 animate-fade-in-left">
             <img 
-              src="/logo.png" 
+              src={isScrolled ? "/logo2.png" : "/logo.png"}
               alt="Trident Luxury Real Estate" 
-              className="h-10 sm:h-12 w-auto rounded-xl"
+              className="h-10 sm:h-12 w-auto rounded-xl transition-all duration-300"
+              key={isScrolled ? "logo2" : "logo"}
             />
             <div>
               <h1 className="text-base sm:text-xl font-bold text-white archivo-black">

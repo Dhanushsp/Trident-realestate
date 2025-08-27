@@ -8,10 +8,18 @@ interface ContactUsPageProps {
 const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { elementRef: formRef, isVisible: formVisible } = useScrollAnimation();
+  const { elementRef: heroTitleRef, isVisible: heroTitleVisible } = useScrollAnimation();
+  const { elementRef: namePhoneRef, isVisible: namePhoneVisible } = useScrollAnimation();
+  const { elementRef: lookingForRef, isVisible: lookingForVisible } = useScrollAnimation();
+  const { elementRef: propertyTypeRef, isVisible: propertyTypeVisible } = useScrollAnimation();
+  const { elementRef: bedroomsRef, isVisible: bedroomsVisible } = useScrollAnimation();
+  const { elementRef: messageRef, isVisible: messageVisible } = useScrollAnimation();
+  const { elementRef: submitButtonRef, isVisible: submitButtonVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
     lookingFor: '',
+    otherLookingFor: '',
     propertyType: '',
     bedrooms: 'Studio',
     message: ''
@@ -26,6 +34,18 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Prepare the data to send
+    const submitData = {
+      ...formData,
+      // If "Other" is selected, use the otherLookingFor value
+      lookingFor: formData.lookingFor === 'Other (please specify)' 
+        ? formData.otherLookingFor 
+        : formData.lookingFor
+    };
+    
+    console.log('Form submitted with data:', submitData);
+    
     // Handle form submission - redirect to contact page for now
     window.location.href = 'https://tridentluxury.com/contact-us/';
   };
@@ -36,7 +56,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
       <section className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0">
           <img 
-            src="/about-us.jpg" 
+            src="/banner3.jpg" 
             alt="Contact Us - Trident Luxury Real Estate" 
             className="w-full h-full object-cover"
           />
@@ -44,7 +64,10 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
         </div>
         
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-2xl sm:text-5xl font-bold mb-8 leading-tight archivo-black">
+          <h1 
+            ref={heroTitleRef}
+            className={`text-2xl sm:text-5xl font-bold mb-8 leading-tight archivo-black scroll-animate ${heroTitleVisible ? 'animate' : ''}`}
+          >
             Contact Us
           </h1>
         </div>
@@ -65,10 +88,10 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
             </div>
 
             {/* Contact Form */}
-            <div ref={formRef} className={`bg-[#7a8a6a] rounded-3xl p-12 shadow-xl scroll-animate ${formVisible ? 'animate' : ''}`} style={{ backgroundColor: '#7a8a6a' }}>
+            <div ref={formRef} className={`bg-[#dbdfa9] rounded-3xl p-12 shadow-xl scroll-animate ${formVisible ? 'animate' : ''}`} style={{ backgroundColor: '#7a8a6a' }}>
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Name and Phone Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div ref={namePhoneRef} className={`grid grid-cols-1 md:grid-cols-2 gap-6 scroll-animate ${namePhoneVisible ? 'animate' : ''}`}>
                   <div>
                     <label htmlFor="fullName" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                       Full Name:
@@ -103,7 +126,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                 </div>
 
                 {/* Looking For Section */}
-                <div>
+                <div ref={lookingForRef} className={`scroll-animate ${lookingForVisible ? 'animate' : ''}`}>
                   <label className="block text-lg font-semibold text-white mb-4 cmu-serif">
                     Are you looking to:
                   </label>
@@ -122,10 +145,29 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                       </label>
                     ))}
                   </div>
+                  
+                  {/* Other Text Field - Only show when "Other (please specify)" is selected */}
+                  {formData.lookingFor === 'Other (please specify)' && (
+                    <div className="mt-4">
+                      <label htmlFor="otherLookingFor" className="block text-lg font-semibold text-white mb-3 cmu-serif">
+                        Please specify:
+                      </label>
+                      <input
+                        type="text"
+                        id="otherLookingFor"
+                        name="otherLookingFor"
+                        value={formData.otherLookingFor}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-6 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-black focus:border-black transition-all duration-200 text-black placeholder-gray-500 cmu-serif"
+                        placeholder="Please specify what you're looking for..."
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Property Type Section */}
-                <div>
+                <div ref={propertyTypeRef} className={`scroll-animate ${propertyTypeVisible ? 'animate' : ''}`}>
                   <label className="block text-lg font-semibold text-white mb-4 cmu-serif">
                     What type of property are you interested in?
                   </label>
@@ -147,7 +189,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                 </div>
 
                 {/* Bedrooms Dropdown */}
-                <div>
+                <div ref={bedroomsRef} className={`scroll-animate ${bedroomsVisible ? 'animate' : ''}`}>
                   <label htmlFor="bedrooms" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                     Preferred number of bedrooms:
                   </label>
@@ -168,7 +210,7 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                 </div>
 
                 {/* Message Textarea */}
-                <div>
+                <div ref={messageRef} className={`scroll-animate ${messageVisible ? 'animate' : ''}`}>
                   <label htmlFor="message" className="block text-lg font-semibold text-white mb-3 cmu-serif">
                     What's on your mind?
                   </label>
@@ -184,10 +226,10 @@ const ContactUsPage: React.FC<ContactUsPageProps> = ({ onBack }) => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="text-center pt-6">
+                <div ref={submitButtonRef} className={`text-center pt-6 scroll-animate ${submitButtonVisible ? 'animate' : ''}`}>
                   <button
                     type="submit"
-                    className="bg-black text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="bg-[#899878] text-white px-12 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     Submit
                   </button>

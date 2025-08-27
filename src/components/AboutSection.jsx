@@ -132,7 +132,7 @@ const AboutSection = ({ onNavigate }) => {
             {/* Large Image Below Text */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="/who-we-are.jpg"
+                src="/hero2.jpg"
                 alt="Luxury Waterfront Property - Horizon Hills Real Estate"
                 className="w-full h-auto object-cover"
               />
@@ -141,13 +141,13 @@ const AboutSection = ({ onNavigate }) => {
         </div>
 
         {/* What Sets Us Apart Section */}
-        <div ref={featuresRef} className={`rounded-3xl pt-16 px-16 scroll-animate ${featuresVisible ? 'animate' : ''}`}>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
+        <div ref={featuresRef} className={`rounded-3xl pt-16 scroll-animate ${featuresVisible ? 'animate' : ''}`}>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-4">
             <div className="lg:col-span-3">
-              <p className="text-lg text-black mb-4">What Sets Us Apart</p>
-              <h2 className="text-4xl font-bold text-black mb-8">
+              <p className="text-2xl text-black mb-4">What Sets Us Apart <span className="text-3xl font-bold text-black mb-5">
                 BUILT DIFFERENT, TRUSTED ALWAYS
-              </h2>
+              </span></p>
+              
             </div>
           </div>
 
@@ -208,10 +208,10 @@ const AboutSection = ({ onNavigate }) => {
         </div>
 
           {/* Trusted Professionals Section */}
-        <div className="rounded-3xl pt-16 px-6 sm:px-16 mt-24">
+        <div className="rounded-3xl pt-8 px-6 sm:px-16 mt-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
             <div className="lg:col-span-2 text-center lg:text-left">
-              <h1 className="text-2xl sm:text-4xl font-bold text-black mb-8 leading-tight">
+              <h1 className="text-2xl sm:text-4xl font-bold text-black mb-2 leading-tight">
                 TRUSTED PROFESSIONALS, DRIVING PROPERTY SUCCESS WITH CLARITY AND CARE.
               </h1>
             </div>

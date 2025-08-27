@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import AboutCarousel from './AboutCarousel';
 import owner from '../assets/owner.png';
 
 interface AboutUsPageProps {
@@ -20,13 +21,8 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
   const { elementRef: whoWeAreTitleRef, isVisible: whoWeAreTitleVisible } = useScrollAnimation<HTMLHeadingElement>();
   const { elementRef: whoWeAreTextRef, isVisible: whoWeAreTextVisible } = useScrollAnimation<HTMLParagraphElement>();
   const { elementRef: whoWeAreImageRef, isVisible: whoWeAreImageVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: featuresHeaderRef, isVisible: featuresHeaderVisible } = useScrollAnimation<HTMLParagraphElement>();
-  const { elementRef: featuresTitleRef, isVisible: featuresTitleVisible } = useScrollAnimation<HTMLHeadingElement>();
-  const { elementRef: transparencyRef, isVisible: transparencyVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: reliabilityRef, isVisible: reliabilityVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: legalPrecisionRef, isVisible: legalPrecisionVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: clientCommitmentRef, isVisible: clientCommitmentVisible } = useScrollAnimation<HTMLDivElement>();
-  const { elementRef: marketExpertiseRef, isVisible: marketExpertiseVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: trustedProfessionalsRef, isVisible: trustedProfessionalsVisible } = useScrollAnimation<HTMLDivElement>();
+  const { elementRef: teamMemberRef, isVisible: teamMemberVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
     <div id="about" className="min-h-screen">
@@ -150,123 +146,11 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
             </div>
           </div>
 
-          {/* What Sets Us Apart Section */}
-          <div className=" rounded-3xl px-8 py-16">
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-end mb-12">
-              <div className="lg:col-span-3">
-                <p 
-                  ref={featuresHeaderRef}
-                  className={`text-lg text-black mb-4 scroll-animate ${featuresHeaderVisible ? 'animate' : ''}`}
-                >
-                  What Sets Us Apart
-                </p>
-                <h2 
-                  ref={featuresTitleRef}
-                  className={`text-2xl sm:text-4xl font-bold text-black mb-8 scroll-animate ${featuresTitleVisible ? 'animate' : ''}`}
-                >
-                  BUILT DIFFERENT, TRUSTED ALWAYS
-                </h2>
-              </div>
-            </div>
-
-            {/* Core Values Vertical List */}
-            <div className="w-full">
-              <div className="space-y-6">
-                {/* Value 1 - Transparency */}
-                <div 
-                  ref={transparencyRef}
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${transparencyVisible ? 'animate' : ''}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-2">Transparency</h3>
-                      <p className="text-black leading-relaxed">Clear communication at every step, so you always know where you stand.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Value 2 - Reliability */}
-                <div 
-                  ref={reliabilityRef}
-                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate ${reliabilityVisible ? 'animate' : ''}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-2">Reliability</h3>
-                      <p className="text-black leading-relaxed">Consistent, dependable service that you can count on, every single time.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Value 3 - Legal Precision */}
-                <div 
-                  ref={legalPrecisionRef}
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${legalPrecisionVisible ? 'animate' : ''}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-2">Legal Precision</h3>
-                      <p className="text-black leading-relaxed">Expert legal guidance ensures every transaction is compliant and secure.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Value 4 - Client Commitment */}
-                <div 
-                  ref={clientCommitmentRef}
-                  className={`bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 scroll-animate ${clientCommitmentVisible ? 'animate' : ''}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-2">Client Commitment</h3>
-                      <p className="text-black leading-relaxed">Your success is our priority, with personalized attention and dedicated support.</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Value 5 - Market Expertise */}
-                <div 
-                  ref={marketExpertiseRef}
-                  className={`bg-gray-100 rounded-lg p-6 hover:shadow-lg transition-all duration-300 scroll-animate ${marketExpertiseVisible ? 'animate' : ''}`}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-16 h-16 bg-[#7a8a6a] rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#7a8a6a' }}>
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-black mb-2">Market Expertise</h3>
-                      <p className="text-black leading-relaxed">Deep local knowledge and market insights to guide your investment decisions.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* About Carousel Section */}
+          <AboutCarousel />
 
           {/* Trusted Professionals Section */}
-<div className="rounded-3xl px-6 sm:px-16">
+<div ref={trustedProfessionalsRef} className={`rounded-3xl px-6 sm:px-16 scroll-animate ${trustedProfessionalsVisible ? 'animate' : ''}`}>
   <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
     <div className="lg:col-span-2 text-center lg:text-left">
       <h1 className="text-2xl sm:text-4xl font-bold text-black mb-8 leading-tight">
@@ -277,7 +161,7 @@ const AboutUsPage: React.FC<AboutUsPageProps> = ({ onBack, onNavigate }) => {
     {/* Team Member Cards */}
     <div className="lg:col-span-1 flex justify-center">
       {/* Team Member 1 */}
-      <div className="bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center">
+      <div ref={teamMemberRef} className={`bg-white rounded-2xl p-6 border border-[#7a8a6a] shadow-lg w-full max-w-xs sm:max-w-sm text-center scroll-animate ${teamMemberVisible ? 'animate' : ''}`}>
         <div className="w-auto h-auto rounded-xl overflow-hidden mb-4 mx-auto">
           <img 
             src={owner}

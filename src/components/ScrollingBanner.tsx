@@ -4,7 +4,7 @@ const ScrollingBanner: React.FC = () => {
   const text = "REAL ESTATE WITH EXPERTISE * NAVIGATING REAL ESTATE WITH EXPERTISE * ";
   
   return (
-    <section className="py-8 bg-[#7a8a6a] overflow-hidden" style={{ backgroundColor: '#7a8a6a' }}>
+    <section className="py-8 bg-[#d0d58f] overflow-hidden" style={{ backgroundColor: '#7a8a6a' }}>
       <div className="relative">
         {/* Scrolling Text Container */}
         <div className="flex whitespace-nowrap">

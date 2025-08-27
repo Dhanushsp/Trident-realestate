@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="border-t border-[#899878] mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © 2025 Trident Luxury Real Estate. All rights reserved. | <a href="http://dhanushdev.in/">Made by Dhanush</a>
+              © 2025 Trident Luxury Real Estate. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-300 hover:text-[#899878] text-sm transition-colors duration-200">
