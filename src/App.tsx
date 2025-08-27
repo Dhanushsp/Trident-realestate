@@ -40,7 +40,6 @@ function App() {
         return (
           <>
             <HeroSlider onNavigate={handleNavigate} />
-            <ServicesSection onBack={() => handleNavigate('home')} onNavigate={handleNavigate} />
             <AboutSection onNavigate={handleNavigate} />
             <VideoSection />
             <TrustedPartners onNavigate={handleNavigate} />

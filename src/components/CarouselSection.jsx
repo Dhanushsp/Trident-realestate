@@ -102,8 +102,8 @@ const CarouselSection = () => {
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '200ms' }}
           >
-            <h3 className="text-2xl font-bold text-black archivo-black">Transparency</h3>
-            <p className="text-lg text-black leading-relaxed cmu-serif">Clear communication at every step, so you always know where you stand.</p>
+            <h3 className="text-2xl font-bold text-white archivo-black">Transparency</h3>
+            <p className="text-lg text-white leading-relaxed cmu-serif">Clear communication at every step, so you always know where you stand.</p>
           </div>
 
           {/* Reliability Box */}
@@ -113,8 +113,8 @@ const CarouselSection = () => {
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '400ms' }}
           >
-            <h3 className="text-2xl font-bold text-black archivo-black">Reliability</h3>
-            <p className="text-lg text-black leading-relaxed cmu-serif">Your goals are our priority, count on us long after the deal is closed.</p>
+            <h3 className="text-2xl font-bold text-white archivo-black">Reliability</h3>
+            <p className="text-lg text-white leading-relaxed cmu-serif">Your goals are our priority, count on us long after the deal is closed.</p>
           </div>
 
           {/* Legal Precision Box */}
@@ -124,8 +124,8 @@ const CarouselSection = () => {
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '600ms' }}
           >
-            <h3 className="text-2xl font-bold text-black archivo-black">Legal Precision</h3>
-            <p className="text-lg text-black leading-relaxed cmu-serif">We deliver peace of mind through meticulous legal oversight and a seamless, secure process.</p>
+            <h3 className="text-2xl font-bold text-white archivo-black">Legal Precision</h3>
+            <p className="text-lg text-white leading-relaxed cmu-serif">We deliver peace of mind through meticulous legal oversight and a seamless, secure process.</p>
           </div>
 
           {/* Client Commitment Box */}
@@ -135,8 +135,8 @@ const CarouselSection = () => {
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '800ms' }}
           >
-            <h3 className="text-2xl font-bold text-black archivo-black">Client Commitment</h3>
-            <p className="text-lg text-black leading-relaxed cmu-serif">Your vision drives our approach. We prioritize your objectives with unwavering dedication and tailored service.</p>
+            <h3 className="text-2xl font-bold text-white archivo-black">Client Commitment</h3>
+            <p className="text-lg text-white leading-relaxed cmu-serif">Your vision drives our approach. We prioritize your objectives with unwavering dedication and tailored service.</p>
           </div>
 
           {/* Market Expertise Box */}
@@ -146,8 +146,8 @@ const CarouselSection = () => {
             }`}
             style={{ backgroundColor: '#7a8a6a', transitionDelay: '1000ms' }}
           >
-            <h3 className="text-2xl font-bold text-black archivo-black">Market Expertise</h3>
-            <p className="text-lg text-black leading-relaxed cmu-serif">Powered by data and insight, our strategies are guided by in-depth research and real-time market intelligence.</p>
+            <h3 className="text-2xl font-bold text-white archivo-black">Market Expertise</h3>
+            <p className="text-lg text-white leading-relaxed cmu-serif">Powered by data and insight, our strategies are guided by in-depth research and real-time market intelligence.</p>
           </div>
         </div>
 
